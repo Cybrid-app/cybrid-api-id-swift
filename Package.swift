@@ -27,7 +27,7 @@ let package = Package(
         .target(
             name: "CybridApiIdSwift",
             dependencies: ["AnyCodable", ],
-            path: "CybridApiIdSwift/APIClient/"
+            path: "CybridApiIdSwift/APIClient"
         ),
     ]
 )
