@@ -20,7 +20,7 @@ Creates a bank OAuth2 application.  Required scope: **banks:write**
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import CybridApiIdSwift
+import CybridApiIdpSwift
 
 let postBankApplicationIdpModel = PostBankApplication(name: "name_example", bankGuid: "bankGuid_example") // PostBankApplicationIdpModel | 
 
@@ -70,10 +70,10 @@ Retrieve a list of bank OAuth2 applications.  Required scope: **banks:read**
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import CybridApiIdSwift
+import CybridApiIdpSwift
 
-let page = 987 // Int | The page index to retrieve. (optional) (default to 0)
-let perPage = 987 // Int | The number of entities per page to return. (optional) (default to 10)
+let page = 987 // Int | The page index to retrieve. (optional)
+let perPage = 987 // Int | The number of entities per page to return. (optional)
 let bankGuid = "bankGuid_example" // String | Bank guid to list applications for. (optional)
 
 // List bank applications
@@ -93,8 +93,8 @@ BankApplicationsAPI.listBankApplications(page: page, perPage: perPage, bankGuid:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Int** | The page index to retrieve. | [optional] [default to 0]
- **perPage** | **Int** | The number of entities per page to return. | [optional] [default to 10]
+ **page** | **Int** | The page index to retrieve. | [optional] 
+ **perPage** | **Int** | The number of entities per page to return. | [optional] 
  **bankGuid** | **String** | Bank guid to list applications for. | [optional] 
 
 ### Return type

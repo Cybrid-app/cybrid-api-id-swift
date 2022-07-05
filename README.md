@@ -1,4 +1,4 @@
-# Swift5 API client for CybridApiIdSwift
+# Swift5 API client for CybridApiIdpSwift
 
 # Welcome
 
