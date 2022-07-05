@@ -6,14 +6,14 @@
 
 import Foundation
 
-// We reverted the change of CybridApiIdSwiftAPI to CybridApiIdSwift introduced in https://github.com/OpenAPITools/openapi-generator/pull/9624
+// We reverted the change of CybridApiIdpSwiftAPI to CybridApiIdpSwift introduced in https://github.com/OpenAPITools/openapi-generator/pull/9624
 // Because it was causing the following issue https://github.com/OpenAPITools/openapi-generator/issues/9953
 // If you are affected by this issue, please consider removing the following two lines,
 // By setting the option removeMigrationProjectNameClass to true in the generator
-@available(*, deprecated, renamed: "CybridApiIdSwiftAPI")
-public typealias CybridApiIdSwift = CybridApiIdSwiftAPI
+@available(*, deprecated, renamed: "CybridApiIdpSwiftAPI")
+public typealias CybridApiIdpSwift = CybridApiIdpSwiftAPI
 
-open class CybridApiIdSwiftAPI {
+open class CybridApiIdpSwiftAPI {
     public static var basePath = "http://api-idp.cybrid.local"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
@@ -40,7 +40,7 @@ open class RequestBuilder<T> {
         self.parameters = parameters
         self.headers = headers
 
-        addHeaders(CybridApiIdSwiftAPI.customHeaders)
+        addHeaders(CybridApiIdpSwiftAPI.customHeaders)
     }
 
     open func addHeaders(_ aHeaders: [String: String]) {
@@ -50,7 +50,7 @@ open class RequestBuilder<T> {
     }
 
     @discardableResult
-    open func execute(_ apiResponseQueue: DispatchQueue = CybridApiIdSwiftAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, ErrorResponse>) -> Void) -> RequestTask {
+    open func execute(_ apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Response<T>, ErrorResponse>) -> Void) -> RequestTask {
         return requestTask
     }
 
@@ -62,7 +62,7 @@ open class RequestBuilder<T> {
     }
 
     open func addCredential() -> Self {
-        credential = CybridApiIdSwiftAPI.credential
+        credential = CybridApiIdpSwiftAPI.credential
         return self
     }
 }

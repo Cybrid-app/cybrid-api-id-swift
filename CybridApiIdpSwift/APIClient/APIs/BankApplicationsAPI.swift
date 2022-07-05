@@ -20,7 +20,7 @@ import AnyCodable
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func createBankApplication(postBankApplicationIdpModel: PostBankApplicationIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationWithSecretIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func createBankApplication(postBankApplicationIdpModel: PostBankApplicationIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationWithSecretIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
         return createBankApplicationWithRequestBuilder(postBankApplicationIdpModel: postBankApplicationIdpModel).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -46,7 +46,7 @@ import AnyCodable
      */
     open class func createBankApplicationWithRequestBuilder(postBankApplicationIdpModel: PostBankApplicationIdpModel) -> RequestBuilder<ApplicationWithSecretIdpModel> {
         let localVariablePath = "/api/bank_applications"
-        let localVariableURLString = CybridApiIdSwiftAPI.basePath + localVariablePath
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postBankApplicationIdpModel)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -57,7 +57,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ApplicationWithSecretIdpModel>.Type = CybridApiIdSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ApplicationWithSecretIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
@@ -65,14 +65,14 @@ import AnyCodable
     /**
      List bank applications
      
-     - parameter page: (query) The page index to retrieve. (optional, default to 0)
-     - parameter perPage: (query) The number of entities per page to return. (optional, default to 10)
+     - parameter page: (query) The page index to retrieve. (optional)
+     - parameter perPage: (query) The number of entities per page to return. (optional)
      - parameter bankGuid: (query) Bank guid to list applications for. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func listBankApplications(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func listBankApplications(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
         return listBankApplicationsWithRequestBuilder(page: page, perPage: perPage, bankGuid: bankGuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -93,14 +93,14 @@ import AnyCodable
      - OAuth:
        - type: oauth2
        - name: oauth2
-     - parameter page: (query) The page index to retrieve. (optional, default to 0)
-     - parameter perPage: (query) The number of entities per page to return. (optional, default to 10)
+     - parameter page: (query) The page index to retrieve. (optional)
+     - parameter perPage: (query) The number of entities per page to return. (optional)
      - parameter bankGuid: (query) Bank guid to list applications for. (optional)
      - returns: RequestBuilder<ApplicationListIdpModel> 
      */
     open class func listBankApplicationsWithRequestBuilder(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil) -> RequestBuilder<ApplicationListIdpModel> {
         let localVariablePath = "/api/bank_applications"
-        let localVariableURLString = CybridApiIdSwiftAPI.basePath + localVariablePath
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -116,7 +116,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ApplicationListIdpModel>.Type = CybridApiIdSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ApplicationListIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

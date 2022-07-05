@@ -20,7 +20,7 @@ import AnyCodable
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func internalCreateOrganizationApplications(postInternalOrganizationApplicationIdpModel: PostInternalOrganizationApplicationIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationWithSecretIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func internalCreateOrganizationApplications(postInternalOrganizationApplicationIdpModel: PostInternalOrganizationApplicationIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationWithSecretIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
         return internalCreateOrganizationApplicationsWithRequestBuilder(postInternalOrganizationApplicationIdpModel: postInternalOrganizationApplicationIdpModel).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -46,7 +46,7 @@ import AnyCodable
      */
     open class func internalCreateOrganizationApplicationsWithRequestBuilder(postInternalOrganizationApplicationIdpModel: PostInternalOrganizationApplicationIdpModel) -> RequestBuilder<ApplicationWithSecretIdpModel> {
         let localVariablePath = "/api/internal/applications"
-        let localVariableURLString = CybridApiIdSwiftAPI.basePath + localVariablePath
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postInternalOrganizationApplicationIdpModel)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
@@ -57,7 +57,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ApplicationWithSecretIdpModel>.Type = CybridApiIdSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ApplicationWithSecretIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

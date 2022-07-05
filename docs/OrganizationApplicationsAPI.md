@@ -20,7 +20,7 @@ Create an organization OAuth2 application.  Required scope: **organizations:writ
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import CybridApiIdSwift
+import CybridApiIdpSwift
 
 let postOrganizationApplicationIdpModel = PostOrganizationApplication(name: "name_example") // PostOrganizationApplicationIdpModel | 
 
@@ -70,10 +70,10 @@ Retrieve a list of organization OAuth2 applications.  Required scope: **organiza
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import CybridApiIdSwift
+import CybridApiIdpSwift
 
-let page = 987 // Int | The page index to retrieve. (optional) (default to 0)
-let perPage = 987 // Int | The number of entities per page to return. (optional) (default to 10)
+let page = 987 // Int | The page index to retrieve. (optional)
+let perPage = 987 // Int | The number of entities per page to return. (optional)
 
 // List organization applications
 OrganizationApplicationsAPI.listOrganizationApplications(page: page, perPage: perPage) { (response, error) in
@@ -92,8 +92,8 @@ OrganizationApplicationsAPI.listOrganizationApplications(page: page, perPage: pe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Int** | The page index to retrieve. | [optional] [default to 0]
- **perPage** | **Int** | The number of entities per page to return. | [optional] [default to 10]
+ **page** | **Int** | The page index to retrieve. | [optional] 
+ **perPage** | **Int** | The number of entities per page to return. | [optional] 
 
 ### Return type
 

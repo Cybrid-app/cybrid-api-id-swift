@@ -1,10 +1,10 @@
-name: CybridApiIdSwift
+name: CybridApiIdpSwift
 targets:
-  CybridApiIdSwift:
+  CybridApiIdpSwift:
     type: framework
     platform: iOS
     deploymentTarget: "9.0"
-    sources: [CybridApiIdSwift/APIClient]
+    sources: [CybridApiIdpSwift/APIClient]
     info:
       path: ./Info.plist
       version: 0.26.3
