@@ -13,15 +13,15 @@ import AnyCodable
 @objc public class ApplicationListIdpModel: NSObject, Codable, JSONEncodable {
 
     /** The total number of records available. */
-    public var total: String
+    public var total: Int
     /** The page index. */
-    public var page: String
+    public var page: Int
     /** The number of records per page returned. */
-    public var perPage: String
+    public var perPage: Int
     /** Array of applications */
     public var objects: [ApplicationIdpModel]
 
-    public init(total: String, page: String, perPage: String, objects: [ApplicationIdpModel]) {
+    public init(total: Int, page: Int, perPage: Int, objects: [ApplicationIdpModel]) {
         self.total = total
         self.page = page
         self.perPage = perPage

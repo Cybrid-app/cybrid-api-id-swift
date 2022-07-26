@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **listOrganizationApplications**
 ```swift
-    open class func listOrganizationApplications(page: String? = nil, perPage: String? = nil, completion: @escaping (_ data: ApplicationListIdpModel?, _ error: Error?) -> Void)
+    open class func listOrganizationApplications(page: Int? = nil, perPage: Int? = nil, completion: @escaping (_ data: ApplicationListIdpModel?, _ error: Error?) -> Void)
 ```
 
 List organization applications
@@ -72,8 +72,8 @@ Retrieve a list of organization OAuth2 applications.  Required scope: **organiza
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let page = "page_example" // String | The page index to retrieve. (optional)
-let perPage = "perPage_example" // String | The number of entities per page to return. (optional)
+let page = 987 // Int | The page index to retrieve. (optional)
+let perPage = 987 // Int | The number of entities per page to return. (optional)
 
 // List organization applications
 OrganizationApplicationsAPI.listOrganizationApplications(page: page, perPage: perPage) { (response, error) in
@@ -92,8 +92,8 @@ OrganizationApplicationsAPI.listOrganizationApplications(page: page, perPage: pe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **String** | The page index to retrieve. | [optional] 
- **perPage** | **String** | The number of entities per page to return. | [optional] 
+ **page** | **Int** | The page index to retrieve. | [optional] 
+ **perPage** | **Int** | The number of entities per page to return. | [optional] 
 
 ### Return type
 
