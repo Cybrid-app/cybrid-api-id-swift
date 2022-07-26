@@ -71,7 +71,7 @@ import AnyCodable
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func listOrganizationApplications(page: String? = nil, perPage: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func listOrganizationApplications(page: Int? = nil, perPage: Int? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
         return listOrganizationApplicationsWithRequestBuilder(page: page, perPage: perPage).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -96,7 +96,7 @@ import AnyCodable
      - parameter perPage: (query) The number of entities per page to return. (optional)
      - returns: RequestBuilder<ApplicationListIdpModel> 
      */
-    open class func listOrganizationApplicationsWithRequestBuilder(page: String? = nil, perPage: String? = nil) -> RequestBuilder<ApplicationListIdpModel> {
+    open class func listOrganizationApplicationsWithRequestBuilder(page: Int? = nil, perPage: Int? = nil) -> RequestBuilder<ApplicationListIdpModel> {
         let localVariablePath = "/api/organization_applications"
         let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil

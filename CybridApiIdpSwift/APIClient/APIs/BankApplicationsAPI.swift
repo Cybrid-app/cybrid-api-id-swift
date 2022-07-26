@@ -72,7 +72,7 @@ import AnyCodable
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func listBankApplications(page: String? = nil, perPage: String? = nil, bankGuid: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func listBankApplications(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
         return listBankApplicationsWithRequestBuilder(page: page, perPage: perPage, bankGuid: bankGuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -98,7 +98,7 @@ import AnyCodable
      - parameter bankGuid: (query) Bank guid to list applications for. (optional)
      - returns: RequestBuilder<ApplicationListIdpModel> 
      */
-    open class func listBankApplicationsWithRequestBuilder(page: String? = nil, perPage: String? = nil, bankGuid: String? = nil) -> RequestBuilder<ApplicationListIdpModel> {
+    open class func listBankApplicationsWithRequestBuilder(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil) -> RequestBuilder<ApplicationListIdpModel> {
         let localVariablePath = "/api/bank_applications"
         let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
