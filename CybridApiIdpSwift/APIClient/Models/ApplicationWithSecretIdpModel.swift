@@ -28,6 +28,8 @@ import AnyCodable
         case pricesRead = "prices:read"
         case quotesExecute = "quotes:execute"
         case tradesExecute = "trades:execute"
+        case rewardsExecute = "rewards:execute"
+        case rewardsRead = "rewards:read"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Name provided for the OAuth2 application. */
