@@ -28,6 +28,8 @@ import AnyCodable
         case quotesRead = "quotes:read"
         case tradesExecute = "trades:execute"
         case tradesRead = "trades:read"
+        case rewardsExecute = "rewards:execute"
+        case rewardsRead = "rewards:read"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Name for the organization application. */
