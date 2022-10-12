@@ -30,6 +30,8 @@ import AnyCodable
         case tradesRead = "trades:read"
         case rewardsExecute = "rewards:execute"
         case rewardsRead = "rewards:read"
+        case externalBankAccountsRead = "external_bank_accounts:read"
+        case externalBankAccountsExecute = "external_bank_accounts:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Name for the organization application. */

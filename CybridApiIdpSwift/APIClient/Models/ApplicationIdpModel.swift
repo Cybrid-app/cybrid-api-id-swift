@@ -22,6 +22,7 @@ import AnyCodable
         case accountsRead = "accounts:read"
         case quotesRead = "quotes:read"
         case tradesRead = "trades:read"
+        case externalBankAccountsRead = "external_bank_accounts:read"
         case accountsExecute = "accounts:execute"
         case customersWrite = "customers:write"
         case customersExecute = "customers:execute"
@@ -30,6 +31,7 @@ import AnyCodable
         case tradesExecute = "trades:execute"
         case rewardsExecute = "rewards:execute"
         case rewardsRead = "rewards:read"
+        case externalBankAccountsExecute = "external_bank_accounts:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Name provided for the OAuth2 application. */
