@@ -14,6 +14,7 @@ import AnyCodable
 
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case customersRead = "customers:read"
+        case customersWrite = "customers:write"
         case accountsRead = "accounts:read"
         case accountsExecute = "accounts:execute"
         case pricesRead = "prices:read"
