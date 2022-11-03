@@ -28,6 +28,8 @@ import AnyCodable
         case quotesRead = "quotes:read"
         case tradesExecute = "trades:execute"
         case tradesRead = "trades:read"
+        case transfersExecute = "transfers:execute"
+        case transfersRead = "transfers:read"
         case rewardsExecute = "rewards:execute"
         case rewardsRead = "rewards:read"
         case externalBankAccountsRead = "external_bank_accounts:read"
