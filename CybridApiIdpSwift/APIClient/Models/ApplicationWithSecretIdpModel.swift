@@ -34,6 +34,7 @@ import AnyCodable
         case transfersExecute = "transfers:execute"
         case rewardsExecute = "rewards:execute"
         case rewardsRead = "rewards:read"
+        case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalBankAccountsExecute = "external_bank_accounts:execute"
         case workflowsExecute = "workflows:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
