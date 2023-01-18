@@ -30,6 +30,8 @@ import AnyCodable
         case externalBankAccountsExecute = "external_bank_accounts:execute"
         case workflowsRead = "workflows:read"
         case workflowsExecute = "workflows:execute"
+        case depositAddressesRead = "deposit_addresses:read"
+        case depositAddressesExecute = "deposit_addresses:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Customer guid the access token is being generated for. */
