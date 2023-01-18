@@ -25,6 +25,7 @@ import AnyCodable
         case transfersRead = "transfers:read"
         case externalBankAccountsRead = "external_bank_accounts:read"
         case workflowsRead = "workflows:read"
+        case depositAddressesRead = "deposit_addresses:read"
         case accountsExecute = "accounts:execute"
         case customersWrite = "customers:write"
         case customersExecute = "customers:execute"
@@ -37,6 +38,7 @@ import AnyCodable
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalBankAccountsExecute = "external_bank_accounts:execute"
         case workflowsExecute = "workflows:execute"
+        case depositAddressesExecute = "deposit_addresses:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Name provided for the OAuth2 application. */
