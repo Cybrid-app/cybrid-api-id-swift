@@ -14,7 +14,7 @@ import Foundation
 public typealias CybridApiIdpSwift = CybridApiIdpSwiftAPI
 
 open class CybridApiIdpSwiftAPI {
-    public static var basePath = "http://api-idp.cybrid.local"
+    public static var basePath = "https://id.sandbox.cybrid.app"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
     public static var requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory()

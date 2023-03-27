@@ -1,6 +1,6 @@
 # BankApplicationsAPI
 
-All URIs are relative to *http://api-idp.cybrid.local*
+All URIs are relative to *https://id.sandbox.cybrid.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
