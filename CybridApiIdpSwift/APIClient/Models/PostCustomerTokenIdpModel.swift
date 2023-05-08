@@ -28,6 +28,8 @@ import AnyCodable
         case externalBankAccountsRead = "external_bank_accounts:read"
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalBankAccountsExecute = "external_bank_accounts:execute"
+        case externalWalletsRead = "external_wallets:read"
+        case externalWalletsExecute = "external_wallets:execute"
         case workflowsRead = "workflows:read"
         case workflowsExecute = "workflows:execute"
         case depositAddressesRead = "deposit_addresses:read"
