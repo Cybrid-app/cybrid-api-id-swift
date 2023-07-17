@@ -34,7 +34,7 @@ import AnyCodable
     /**
      Create customer access token
      - POST /api/customer_tokens
-     - Creates a customer JWT access token.  Required scope: **customers:write**
+     - Creates a customer JWT access token.  Required scopes: **customers:write** and **customers:read**
      - BASIC:
        - type: http
        - name: BearerAuth
