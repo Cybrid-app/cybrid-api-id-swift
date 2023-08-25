@@ -34,7 +34,7 @@ import AnyCodable
     /**
      Create bank application
      - POST /api/bank_applications
-     - Creates a bank OAuth2 application.  Required scope: **banks:write**
+     - Creates a bank OAuth2 application.  Required scope: **bank_applications:execute**
      - BASIC:
        - type: http
        - name: BearerAuth

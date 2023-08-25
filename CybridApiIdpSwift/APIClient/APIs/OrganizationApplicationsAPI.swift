@@ -34,7 +34,7 @@ import AnyCodable
     /**
      Create organization application
      - POST /api/organization_applications
-     - Create an organization OAuth2 application.  Required scope: **organizations:write**
+     - Create an organization OAuth2 application.  Required scope: **organization_applications:execute**
      - BASIC:
        - type: http
        - name: BearerAuth
