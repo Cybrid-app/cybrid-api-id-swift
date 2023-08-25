@@ -15,6 +15,7 @@ import AnyCodable
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case accountsExecute = "accounts:execute"
         case accountsRead = "accounts:read"
+        case bankApplicationsExecute = "bank_applications:execute"
         case banksExecute = "banks:execute"
         case banksRead = "banks:read"
         case banksWrite = "banks:write"
@@ -28,6 +29,7 @@ import AnyCodable
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalWalletsExecute = "external_wallets:execute"
         case externalWalletsRead = "external_wallets:read"
+        case organizationApplicationsExecute = "organization_applications:execute"
         case organizationsRead = "organizations:read"
         case organizationsWrite = "organizations:write"
         case pricesRead = "prices:read"
