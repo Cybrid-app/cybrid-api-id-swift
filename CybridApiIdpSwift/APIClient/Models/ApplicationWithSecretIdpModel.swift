@@ -42,6 +42,7 @@ import AnyCodable
         case transfersExecute = "transfers:execute"
         case transfersRead = "transfers:read"
         case usersExecute = "users:execute"
+        case usersRead = "users:read"
         case workflowsExecute = "workflows:execute"
         case workflowsRead = "workflows:read"
         case unknownDefaultOpenApi = "unknown_default_open_api"
