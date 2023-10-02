@@ -35,8 +35,6 @@ import AnyCodable
         case pricesRead = "prices:read"
         case quotesExecute = "quotes:execute"
         case quotesRead = "quotes:read"
-        case rewardsExecute = "rewards:execute"
-        case rewardsRead = "rewards:read"
         case tradesExecute = "trades:execute"
         case tradesRead = "trades:read"
         case transfersExecute = "transfers:execute"
