@@ -24,6 +24,8 @@ import AnyCodable
         case customersWrite = "customers:write"
         case depositAddressesExecute = "deposit_addresses:execute"
         case depositAddressesRead = "deposit_addresses:read"
+        case depositBankAccountsExecute = "deposit_bank_accounts:execute"
+        case depositBankAccountsRead = "deposit_bank_accounts:read"
         case externalBankAccountsExecute = "external_bank_accounts:execute"
         case externalBankAccountsRead = "external_bank_accounts:read"
         case externalBankAccountsWrite = "external_bank_accounts:write"
