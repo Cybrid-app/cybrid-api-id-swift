@@ -5,6 +5,7 @@ All URIs are relative to *https://id.sandbox.cybrid.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createUser**](UsersAPI.md#createuser) | **POST** /api/users | Create user
+[**disableUser**](UsersAPI.md#disableuser) | **DELETE** /api/users/{user_guid} | Disable User
 [**getUser**](UsersAPI.md#getuser) | **GET** /api/users/{user_guid} | Get User
 [**listUser**](UsersAPI.md#listuser) | **GET** /api/users | List users
 
@@ -55,6 +56,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **disableUser**
+```swift
+    open class func disableUser(userGuid: String, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+```
+
+Disable User
+
+Disables a user. User is not deleted.  Required scope: **users:execute**
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import CybridApiIdpSwift
+
+let userGuid = "userGuid_example" // String | Identifier for the user.
+
+// Disable User
+UsersAPI.disableUser(userGuid: userGuid) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userGuid** | **String** | Identifier for the user. | 
+
+### Return type
+
+Void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

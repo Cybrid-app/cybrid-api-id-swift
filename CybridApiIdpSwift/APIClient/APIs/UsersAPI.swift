@@ -63,6 +63,59 @@ import AnyCodable
     }
 
     /**
+     Disable User
+     
+     - parameter userGuid: (path) Identifier for the user. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    @discardableResult
+    open class func disableUser(userGuid: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Void, ErrorResponse>) -> Void)) -> RequestTask {
+        return disableUserWithRequestBuilder(userGuid: userGuid).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Disable User
+     - DELETE /api/users/{user_guid}
+     - Disables a user. User is not deleted.  Required scope: **users:execute**
+     - BASIC:
+       - type: http
+       - name: BearerAuth
+     - OAuth:
+       - type: oauth2
+       - name: oauth2
+     - parameter userGuid: (path) Identifier for the user. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func disableUserWithRequestBuilder(userGuid: String) -> RequestBuilder<Void> {
+        var localVariablePath = "/api/users/{user_guid}"
+        let userGuidPreEscape = "\(APIHelper.mapValueToPathItem(userGuid))"
+        let userGuidPostEscape = userGuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{user_guid}", with: userGuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Get User
      
      - parameter userGuid: (path) Identifier for the user. 
