@@ -18,14 +18,17 @@ import AnyCodable
     public var username: String?
     /** The user's email address. */
     public var email: String?
-    /** ISO8601 datetime the application was created at. */
+    /** ISO8601 datetime the record was created at. */
     public var createdAt: Date?
+    /** ISO8601 datetime the record was last updated at. */
+    public var updatedAt: Date?
 
-    public init(guid: String? = nil, username: String? = nil, email: String? = nil, createdAt: Date? = nil) {
+    public init(guid: String? = nil, username: String? = nil, email: String? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) {
         self.guid = guid
         self.username = username
         self.email = email
         self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,6 +36,7 @@ import AnyCodable
         case username
         case email
         case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
 
     // Encodable protocol methods
@@ -43,6 +47,7 @@ import AnyCodable
         try container.encodeIfPresent(username, forKey: .username)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
+        try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
     }
 }
 

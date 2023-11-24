@@ -53,14 +53,17 @@ import AnyCodable
     public var clientId: String
     /** List of the scopes granted to the OAuth2 application. */
     public var scopes: [ScopesIdpModel]
-    /** ISO8601 datetime the application was created at. */
+    /** ISO8601 datetime the record was created at. */
     public var createdAt: Date
+    /** ISO8601 datetime the record was last updated at. */
+    public var updatedAt: Date?
 
-    public init(name: String, clientId: String, scopes: [ScopesIdpModel], createdAt: Date) {
+    public init(name: String, clientId: String, scopes: [ScopesIdpModel], createdAt: Date, updatedAt: Date? = nil) {
         self.name = name
         self.clientId = clientId
         self.scopes = scopes
         self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -68,6 +71,7 @@ import AnyCodable
         case clientId = "client_id"
         case scopes
         case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
 
     // Encodable protocol methods
@@ -78,6 +82,7 @@ import AnyCodable
         try container.encode(clientId, forKey: .clientId)
         try container.encode(scopes, forKey: .scopes)
         try container.encode(createdAt, forKey: .createdAt)
+        try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
     }
 }
 
