@@ -53,16 +53,19 @@ import AnyCodable
     public var clientId: String
     /** List of the scopes granted to the OAuth2 application. */
     public var scopes: [ScopesIdpModel]
-    /** ISO8601 datetime the application was created at. */
+    /** ISO8601 datetime the record was created at. */
     public var createdAt: Date
+    /** ISO8601 datetime the record was last updated at. */
+    public var updatedAt: Date?
     /** The OAuth2 application's secret. */
     public var secret: String
 
-    public init(name: String, clientId: String, scopes: [ScopesIdpModel], createdAt: Date, secret: String) {
+    public init(name: String, clientId: String, scopes: [ScopesIdpModel], createdAt: Date, updatedAt: Date? = nil, secret: String) {
         self.name = name
         self.clientId = clientId
         self.scopes = scopes
         self.createdAt = createdAt
+        self.updatedAt = updatedAt
         self.secret = secret
     }
 
@@ -71,6 +74,7 @@ import AnyCodable
         case clientId = "client_id"
         case scopes
         case createdAt = "created_at"
+        case updatedAt = "updated_at"
         case secret
     }
 
@@ -82,6 +86,7 @@ import AnyCodable
         try container.encode(clientId, forKey: .clientId)
         try container.encode(scopes, forKey: .scopes)
         try container.encode(createdAt, forKey: .createdAt)
+        try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
         try container.encode(secret, forKey: .secret)
     }
 }
