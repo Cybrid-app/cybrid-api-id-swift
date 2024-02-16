@@ -35,6 +35,9 @@ import AnyCodable
         case depositAddressesExecute = "deposit_addresses:execute"
         case depositBankAccountsRead = "deposit_bank_accounts:read"
         case depositBankAccountsExecute = "deposit_bank_accounts:execute"
+        case invoicesRead = "invoices:read"
+        case invoicesWrite = "invoices:write"
+        case invoicesExecute = "invoices:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Customer guid the access token is being generated for. */
