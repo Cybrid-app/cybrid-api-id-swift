@@ -13,15 +13,15 @@ import AnyCodable
 @objc open class ApplicationsAPI : NSObject {
 
     /**
-     Discard Application
+     Delete Application
      
      - parameter clientId: (path) Identifier for the application. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func discardApplication(clientId: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Void, ErrorResponse>) -> Void)) -> RequestTask {
-        return discardApplicationWithRequestBuilder(clientId: clientId).execute(apiResponseQueue) { result in
+    open class func deleteBankApplication(clientId: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Void, ErrorResponse>) -> Void)) -> RequestTask {
+        return deleteBankApplicationWithRequestBuilder(clientId: clientId).execute(apiResponseQueue) { result in
             switch result {
             case .success:
                 completion(.success(()))
@@ -32,9 +32,9 @@ import AnyCodable
     }
 
     /**
-     Discard Application
-     - DELETE /api/applications/{client_id}
-     - Discards an application. Application is not deleted, all access tokens are revoked.Required scope: **organization_applications:execute**
+     Delete Application
+     - DELETE /api/bank_applications/{client_id}
+     - Deletes an application.Required scope: **bank_applications:execute**
      - BASIC:
        - type: http
        - name: BearerAuth
@@ -44,8 +44,61 @@ import AnyCodable
      - parameter clientId: (path) Identifier for the application. 
      - returns: RequestBuilder<Void> 
      */
-    open class func discardApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<Void> {
-        var localVariablePath = "/api/applications/{client_id}"
+    open class func deleteBankApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<Void> {
+        var localVariablePath = "/api/bank_applications/{client_id}"
+        let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
+        let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{client_id}", with: clientIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Delete Application
+     
+     - parameter clientId: (path) Identifier for the application. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    @discardableResult
+    open class func deleteOrganizationApplication(clientId: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Void, ErrorResponse>) -> Void)) -> RequestTask {
+        return deleteOrganizationApplicationWithRequestBuilder(clientId: clientId).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Delete Application
+     - DELETE /api/organization_applications/{client_id}
+     - Deletes an application.Required scope: **organization_applications:execute**
+     - BASIC:
+       - type: http
+       - name: BearerAuth
+     - OAuth:
+       - type: oauth2
+       - name: oauth2
+     - parameter clientId: (path) Identifier for the application. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func deleteOrganizationApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<Void> {
+        var localVariablePath = "/api/organization_applications/{client_id}"
         let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
         let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{client_id}", with: clientIdPostEscape, options: .literal, range: nil)
