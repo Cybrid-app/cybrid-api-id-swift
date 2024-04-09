@@ -63,6 +63,59 @@ import AnyCodable
     }
 
     /**
+     Delete organization application
+     
+     - parameter clientId: (path) Identifier for the application. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    @discardableResult
+    open class func deleteOrganizationApplication(clientId: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Void, ErrorResponse>) -> Void)) -> RequestTask {
+        return deleteOrganizationApplicationWithRequestBuilder(clientId: clientId).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Delete organization application
+     - DELETE /api/organization_applications/{client_id}
+     - Deletes an application.Required scope: **organization_applications:execute**
+     - BASIC:
+       - type: http
+       - name: BearerAuth
+     - OAuth:
+       - type: oauth2
+       - name: oauth2
+     - parameter clientId: (path) Identifier for the application. 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func deleteOrganizationApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<Void> {
+        var localVariablePath = "/api/organization_applications/{client_id}"
+        let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
+        let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{client_id}", with: clientIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      List organization applications
      
      - parameter page: (query) The page index to retrieve. (optional)
