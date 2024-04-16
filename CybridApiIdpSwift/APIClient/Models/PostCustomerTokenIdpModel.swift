@@ -13,6 +13,8 @@ import AnyCodable
 @objc public class PostCustomerTokenIdpModel: NSObject, Codable, JSONEncodable {
 
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
+        case counterpartiesRead = "counterparties:read"
+        case counterpartiesWrite = "counterparties:write"
         case customersRead = "customers:read"
         case customersWrite = "customers:write"
         case accountsRead = "accounts:read"
