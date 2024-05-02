@@ -7,7 +7,7 @@ targets:
     sources: [CybridApiIdpSwift/APIClient]
     info:
       path: ./Info.plist
-      version: 0.115.134
+      version: 0.115.135
     settings:
       APPLICATION_EXTENSION_API_ONLY: true
     scheme: {}
