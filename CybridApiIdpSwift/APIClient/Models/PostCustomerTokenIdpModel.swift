@@ -15,6 +15,7 @@ import AnyCodable
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case counterpartiesRead = "counterparties:read"
         case counterpartiesWrite = "counterparties:write"
+        case counterpartiesExecute = "counterparties:execute"
         case customersRead = "customers:read"
         case customersWrite = "customers:write"
         case accountsRead = "accounts:read"
@@ -40,6 +41,9 @@ import AnyCodable
         case invoicesRead = "invoices:read"
         case invoicesWrite = "invoices:write"
         case invoicesExecute = "invoices:execute"
+        case identityVerificationsRead = "identity_verifications:read"
+        case identityVerificationsWrite = "identity_verifications:write"
+        case identityVerificationsExecute = "identity_verifications:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Customer guid the access token is being generated for. */
