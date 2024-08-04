@@ -46,6 +46,8 @@ import AnyCodable
         case pricesRead = "prices:read"
         case quotesExecute = "quotes:execute"
         case quotesRead = "quotes:read"
+        case subscriptionEventsExecute = "subscription_events:execute"
+        case subscriptionEventsRead = "subscription_events:read"
         case subscriptionsExecute = "subscriptions:execute"
         case subscriptionsRead = "subscriptions:read"
         case subscriptionsWrite = "subscriptions:write"
