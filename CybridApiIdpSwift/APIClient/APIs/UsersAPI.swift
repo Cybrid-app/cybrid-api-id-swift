@@ -15,13 +15,13 @@ import AnyCodable
     /**
      Create user
      
-     - parameter postUserIdpModel: (body)  
+     - parameter postUser: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func createUser(postUserIdpModel: PostUserIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<UserIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
-        return createUserWithRequestBuilder(postUserIdpModel: postUserIdpModel).execute(apiResponseQueue) { result in
+    open class func createUser(postUser: PostUser, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<User, ErrorResponse>) -> Void)) -> RequestTask {
+        return createUserWithRequestBuilder(postUser: postUser).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(.success(response.body))
@@ -41,13 +41,13 @@ import AnyCodable
      - OAuth:
        - type: oauth2
        - name: oauth2
-     - parameter postUserIdpModel: (body)  
-     - returns: RequestBuilder<UserIdpModel> 
+     - parameter postUser: (body)  
+     - returns: RequestBuilder<User> 
      */
-    open class func createUserWithRequestBuilder(postUserIdpModel: PostUserIdpModel) -> RequestBuilder<UserIdpModel> {
+    open class func createUserWithRequestBuilder(postUser: PostUser) -> RequestBuilder<User> {
         let localVariablePath = "/api/users"
         let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postUserIdpModel)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postUser)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -57,7 +57,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<User>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
@@ -123,7 +123,7 @@ import AnyCodable
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func getUser(userGuid: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<UserIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func getUser(userGuid: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<User, ErrorResponse>) -> Void)) -> RequestTask {
         return getUserWithRequestBuilder(userGuid: userGuid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -145,9 +145,9 @@ import AnyCodable
        - type: oauth2
        - name: oauth2
      - parameter userGuid: (path) Identifier for the user. 
-     - returns: RequestBuilder<UserIdpModel> 
+     - returns: RequestBuilder<User> 
      */
-    open class func getUserWithRequestBuilder(userGuid: String) -> RequestBuilder<UserIdpModel> {
+    open class func getUserWithRequestBuilder(userGuid: String) -> RequestBuilder<User> {
         var localVariablePath = "/api/users/{user_guid}"
         let userGuidPreEscape = "\(APIHelper.mapValueToPathItem(userGuid))"
         let userGuidPostEscape = userGuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -163,7 +163,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<User>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
@@ -178,7 +178,7 @@ import AnyCodable
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func listUser(page: Int? = nil, perPage: Int? = nil, guid: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<UserListIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+    open class func listUser(page: Int? = nil, perPage: Int? = nil, guid: String? = nil, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<UserList, ErrorResponse>) -> Void)) -> RequestTask {
         return listUserWithRequestBuilder(page: page, perPage: perPage, guid: guid).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -202,9 +202,9 @@ import AnyCodable
      - parameter page: (query) The page index to retrieve. (optional)
      - parameter perPage: (query) The number of entities per page to return. (optional)
      - parameter guid: (query) Comma separated guids to list users for. (optional)
-     - returns: RequestBuilder<UserListIdpModel> 
+     - returns: RequestBuilder<UserList> 
      */
-    open class func listUserWithRequestBuilder(page: Int? = nil, perPage: Int? = nil, guid: String? = nil) -> RequestBuilder<UserListIdpModel> {
+    open class func listUserWithRequestBuilder(page: Int? = nil, perPage: Int? = nil, guid: String? = nil) -> RequestBuilder<UserList> {
         let localVariablePath = "/api/users"
         let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -222,7 +222,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserListIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserList>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

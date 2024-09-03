@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **createBankApplication**
 ```swift
-    open class func createBankApplication(postBankApplicationIdpModel: PostBankApplicationIdpModel, completion: @escaping (_ data: ApplicationWithSecretIdpModel?, _ error: Error?) -> Void)
+    open class func createBankApplication(postBankApplication: PostBankApplication, completion: @escaping (_ data: ApplicationWithSecret?, _ error: Error?) -> Void)
 ```
 
 Create bank application
@@ -23,10 +23,10 @@ Creates a bank OAuth2 application.  Required scope: **bank_applications:execute*
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postBankApplicationIdpModel = PostBankApplication(name: "name_example", bankGuid: "bankGuid_example") // PostBankApplicationIdpModel | 
+let postBankApplication = PostBankApplication(name: "name_example", bankGuid: "bankGuid_example") // PostBankApplication | 
 
 // Create bank application
-BankApplicationsAPI.createBankApplication(postBankApplicationIdpModel: postBankApplicationIdpModel) { (response, error) in
+BankApplicationsAPI.createBankApplication(postBankApplication: postBankApplication) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -42,11 +42,11 @@ BankApplicationsAPI.createBankApplication(postBankApplicationIdpModel: postBankA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postBankApplicationIdpModel** | [**PostBankApplicationIdpModel**](PostBankApplicationIdpModel.md) |  | 
+ **postBankApplication** | [**PostBankApplication**](PostBankApplication.md) |  | 
 
 ### Return type
 
-[**ApplicationWithSecretIdpModel**](ApplicationWithSecretIdpModel.md)
+[**ApplicationWithSecret**](ApplicationWithSecret.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Void (empty response body)
 
 # **listBankApplications**
 ```swift
-    open class func listBankApplications(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil, completion: @escaping (_ data: ApplicationListIdpModel?, _ error: Error?) -> Void)
+    open class func listBankApplications(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil, completion: @escaping (_ data: ApplicationList?, _ error: Error?) -> Void)
 ```
 
 List bank applications
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationListIdpModel**](ApplicationListIdpModel.md)
+[**ApplicationList**](ApplicationList.md)
 
 ### Authorization
 

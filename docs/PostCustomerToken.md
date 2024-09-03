@@ -1,12 +1,10 @@
-# UserListIdpModel
+# PostCustomerToken
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Int** | The total number of users available. | 
-**page** | **Int** | The page index. | 
-**perPage** | **Int** | The number of records per page returned. | 
-**objects** | [UserIdpModel] | Array of applications | 
+**customerGuid** | **String** | Customer guid the access token is being generated for. | 
+**scopes** | **Set<String>** | List of the scopes requested for the access token. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

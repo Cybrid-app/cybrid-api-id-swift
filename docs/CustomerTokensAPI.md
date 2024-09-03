@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **createCustomerToken**
 ```swift
-    open class func createCustomerToken(postCustomerTokenIdpModel: PostCustomerTokenIdpModel, completion: @escaping (_ data: CustomerTokenIdpModel?, _ error: Error?) -> Void)
+    open class func createCustomerToken(postCustomerToken: PostCustomerToken, completion: @escaping (_ data: CustomerToken?, _ error: Error?) -> Void)
 ```
 
 Create customer access token
@@ -21,10 +21,10 @@ Creates a customer JWT access token.  Required scopes: **customers:write** and *
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postCustomerTokenIdpModel = PostCustomerToken(customerGuid: "customerGuid_example", scopes: ["scopes_example"]) // PostCustomerTokenIdpModel | 
+let postCustomerToken = PostCustomerToken(customerGuid: "customerGuid_example", scopes: ["scopes_example"]) // PostCustomerToken | 
 
 // Create customer access token
-CustomerTokensAPI.createCustomerToken(postCustomerTokenIdpModel: postCustomerTokenIdpModel) { (response, error) in
+CustomerTokensAPI.createCustomerToken(postCustomerToken: postCustomerToken) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -40,11 +40,11 @@ CustomerTokensAPI.createCustomerToken(postCustomerTokenIdpModel: postCustomerTok
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postCustomerTokenIdpModel** | [**PostCustomerTokenIdpModel**](PostCustomerTokenIdpModel.md) |  | 
+ **postCustomerToken** | [**PostCustomerToken**](PostCustomerToken.md) |  | 
 
 ### Return type
 
-[**CustomerTokenIdpModel**](CustomerTokenIdpModel.md)
+[**CustomerToken**](CustomerToken.md)
 
 ### Authorization
 
