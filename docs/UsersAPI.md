@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 # **createUser**
 ```swift
-    open class func createUser(postUserIdpModel: PostUserIdpModel, completion: @escaping (_ data: UserIdpModel?, _ error: Error?) -> Void)
+    open class func createUser(postUser: PostUser, completion: @escaping (_ data: User?, _ error: Error?) -> Void)
 ```
 
 Create user
@@ -24,10 +24,10 @@ Creates a user.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postUserIdpModel = PostUser(email: "email_example") // PostUserIdpModel | 
+let postUser = PostUser(email: "email_example") // PostUser | 
 
 // Create user
-UsersAPI.createUser(postUserIdpModel: postUserIdpModel) { (response, error) in
+UsersAPI.createUser(postUser: postUser) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,11 +43,11 @@ UsersAPI.createUser(postUserIdpModel: postUserIdpModel) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postUserIdpModel** | [**PostUserIdpModel**](PostUserIdpModel.md) |  | 
+ **postUser** | [**PostUser**](PostUser.md) |  | 
 
 ### Return type
 
-[**UserIdpModel**](UserIdpModel.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Void (empty response body)
 
 # **getUser**
 ```swift
-    open class func getUser(userGuid: String, completion: @escaping (_ data: UserIdpModel?, _ error: Error?) -> Void)
+    open class func getUser(userGuid: String, completion: @escaping (_ data: User?, _ error: Error?) -> Void)
 ```
 
 Get User
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserIdpModel**](UserIdpModel.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 # **listUser**
 ```swift
-    open class func listUser(page: Int? = nil, perPage: Int? = nil, guid: String? = nil, completion: @escaping (_ data: UserListIdpModel?, _ error: Error?) -> Void)
+    open class func listUser(page: Int? = nil, perPage: Int? = nil, guid: String? = nil, completion: @escaping (_ data: UserList?, _ error: Error?) -> Void)
 ```
 
 List users
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserListIdpModel**](UserListIdpModel.md)
+[**UserList**](UserList.md)
 
 ### Authorization
 

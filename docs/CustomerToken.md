@@ -1,12 +1,9 @@
-# ApplicationListIdpModel
+# CustomerToken
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Int** | The total number of records available. | 
-**page** | **Int** | The page index. | 
-**perPage** | **Int** | The number of records per page returned. | 
-**objects** | [ApplicationIdpModel] | Array of applications | 
+**accessToken** | **String** | The JWT access token for the customer. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
