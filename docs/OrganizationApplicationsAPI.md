@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **createOrganizationApplication**
 ```swift
-    open class func createOrganizationApplication(postOrganizationApplication: PostOrganizationApplication, completion: @escaping (_ data: ApplicationWithSecret?, _ error: Error?) -> Void)
+    open class func createOrganizationApplication(postOrganizationApplicationIdpModel: PostOrganizationApplicationIdpModel, completion: @escaping (_ data: ApplicationWithSecretIdpModel?, _ error: Error?) -> Void)
 ```
 
 Create organization application
@@ -23,10 +23,10 @@ Create an organization OAuth2 application.  Required scope: **organization_appli
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postOrganizationApplication = PostOrganizationApplication(name: "name_example") // PostOrganizationApplication | 
+let postOrganizationApplicationIdpModel = PostOrganizationApplication(name: "name_example") // PostOrganizationApplicationIdpModel | 
 
 // Create organization application
-OrganizationApplicationsAPI.createOrganizationApplication(postOrganizationApplication: postOrganizationApplication) { (response, error) in
+OrganizationApplicationsAPI.createOrganizationApplication(postOrganizationApplicationIdpModel: postOrganizationApplicationIdpModel) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -42,11 +42,11 @@ OrganizationApplicationsAPI.createOrganizationApplication(postOrganizationApplic
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postOrganizationApplication** | [**PostOrganizationApplication**](PostOrganizationApplication.md) |  | 
+ **postOrganizationApplicationIdpModel** | [**PostOrganizationApplicationIdpModel**](PostOrganizationApplicationIdpModel.md) |  | 
 
 ### Return type
 
-[**ApplicationWithSecret**](ApplicationWithSecret.md)
+[**ApplicationWithSecretIdpModel**](ApplicationWithSecretIdpModel.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Void (empty response body)
 
 # **listOrganizationApplications**
 ```swift
-    open class func listOrganizationApplications(page: Int? = nil, perPage: Int? = nil, completion: @escaping (_ data: ApplicationList?, _ error: Error?) -> Void)
+    open class func listOrganizationApplications(page: Int? = nil, perPage: Int? = nil, completion: @escaping (_ data: ApplicationListIdpModel?, _ error: Error?) -> Void)
 ```
 
 List organization applications
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationList**](ApplicationList.md)
+[**ApplicationListIdpModel**](ApplicationListIdpModel.md)
 
 ### Authorization
 
