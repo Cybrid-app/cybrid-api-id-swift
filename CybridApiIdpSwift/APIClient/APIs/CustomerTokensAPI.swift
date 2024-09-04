@@ -15,13 +15,13 @@ import AnyCodable
     /**
      Create customer access token
      
-     - parameter postCustomerToken: (body)  
+     - parameter postCustomerTokenIdpModel: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
     @discardableResult
-    open class func createCustomerToken(postCustomerToken: PostCustomerToken, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<CustomerToken, ErrorResponse>) -> Void)) -> RequestTask {
-        return createCustomerTokenWithRequestBuilder(postCustomerToken: postCustomerToken).execute(apiResponseQueue) { result in
+    open class func createCustomerToken(postCustomerTokenIdpModel: PostCustomerTokenIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<CustomerTokenIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+        return createCustomerTokenWithRequestBuilder(postCustomerTokenIdpModel: postCustomerTokenIdpModel).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(.success(response.body))
@@ -41,13 +41,13 @@ import AnyCodable
      - OAuth:
        - type: oauth2
        - name: oauth2
-     - parameter postCustomerToken: (body)  
-     - returns: RequestBuilder<CustomerToken> 
+     - parameter postCustomerTokenIdpModel: (body)  
+     - returns: RequestBuilder<CustomerTokenIdpModel> 
      */
-    open class func createCustomerTokenWithRequestBuilder(postCustomerToken: PostCustomerToken) -> RequestBuilder<CustomerToken> {
+    open class func createCustomerTokenWithRequestBuilder(postCustomerTokenIdpModel: PostCustomerTokenIdpModel) -> RequestBuilder<CustomerTokenIdpModel> {
         let localVariablePath = "/api/customer_tokens"
         let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postCustomerToken)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postCustomerTokenIdpModel)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -57,7 +57,7 @@ import AnyCodable
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CustomerToken>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CustomerTokenIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
