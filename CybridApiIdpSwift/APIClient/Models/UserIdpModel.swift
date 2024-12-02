@@ -12,21 +12,76 @@ import AnyCodable
 
 @objc public class UserIdpModel: NSObject, Codable, JSONEncodable {
 
+    public enum AllowedScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
+        case organizationsRead = "organizations:read"
+        case organizationsWrite = "organizations:write"
+        case organizationApplicationsExecute = "organization_applications:execute"
+        case banksRead = "banks:read"
+        case banksWrite = "banks:write"
+        case banksExecute = "banks:execute"
+        case bankApplicationsExecute = "bank_applications:execute"
+        case usersRead = "users:read"
+        case usersExecute = "users:execute"
+        case accountsRead = "accounts:read"
+        case accountsExecute = "accounts:execute"
+        case counterpartiesRead = "counterparties:read"
+        case counterpartiesWrite = "counterparties:write"
+        case counterpartiesExecute = "counterparties:execute"
+        case customersRead = "customers:read"
+        case customersWrite = "customers:write"
+        case customersExecute = "customers:execute"
+        case pricesRead = "prices:read"
+        case quotesExecute = "quotes:execute"
+        case quotesRead = "quotes:read"
+        case tradesExecute = "trades:execute"
+        case tradesRead = "trades:read"
+        case transfersExecute = "transfers:execute"
+        case transfersRead = "transfers:read"
+        case externalBankAccountsRead = "external_bank_accounts:read"
+        case externalBankAccountsWrite = "external_bank_accounts:write"
+        case externalBankAccountsExecute = "external_bank_accounts:execute"
+        case externalWalletsRead = "external_wallets:read"
+        case externalWalletsExecute = "external_wallets:execute"
+        case workflowsRead = "workflows:read"
+        case workflowsExecute = "workflows:execute"
+        case depositAddressesRead = "deposit_addresses:read"
+        case depositAddressesExecute = "deposit_addresses:execute"
+        case depositBankAccountsRead = "deposit_bank_accounts:read"
+        case depositBankAccountsExecute = "deposit_bank_accounts:execute"
+        case invoicesRead = "invoices:read"
+        case invoicesWrite = "invoices:write"
+        case invoicesExecute = "invoices:execute"
+        case subscriptionsRead = "subscriptions:read"
+        case subscriptionsWrite = "subscriptions:write"
+        case subscriptionsExecute = "subscriptions:execute"
+        case subscriptionEventsRead = "subscription_events:read"
+        case subscriptionEventsExecute = "subscription_events:execute"
+        case identityVerificationsRead = "identity_verifications:read"
+        case identityVerificationsWrite = "identity_verifications:write"
+        case identityVerificationsExecute = "identity_verifications:execute"
+        case openid = "openid"
+        case profile = "profile"
+        case email = "email"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+    }
     /** Auto-generated unique identifier for the user. */
     public var guid: String?
     /** The user's username. */
     public var username: String?
     /** The user's email address. */
     public var email: String?
+    /** The list of scopes that the user is allowed to request. */
+    public var allowedScopes: Set<AllowedScopesIdpModel>?
     /** ISO8601 datetime the record was created at. */
     public var createdAt: Date?
     /** ISO8601 datetime the record was last updated at. */
     public var updatedAt: Date?
 
-    public init(guid: String? = nil, username: String? = nil, email: String? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) {
+    public init(guid: String? = nil, username: String? = nil, email: String? = nil, allowedScopes: Set<AllowedScopesIdpModel>? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) {
         self.guid = guid
         self.username = username
         self.email = email
+        self.allowedScopes = allowedScopes
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
@@ -35,6 +90,7 @@ import AnyCodable
         case guid
         case username
         case email
+        case allowedScopes = "allowed_scopes"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -46,6 +102,7 @@ import AnyCodable
         try container.encodeIfPresent(guid, forKey: .guid)
         try container.encodeIfPresent(username, forKey: .username)
         try container.encodeIfPresent(email, forKey: .email)
+        try container.encodeIfPresent(allowedScopes, forKey: .allowedScopes)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
     }
