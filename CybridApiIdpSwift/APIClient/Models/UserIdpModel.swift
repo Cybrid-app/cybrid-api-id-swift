@@ -59,6 +59,8 @@ import AnyCodable
         case identityVerificationsRead = "identity_verifications:read"
         case identityVerificationsWrite = "identity_verifications:write"
         case identityVerificationsExecute = "identity_verifications:execute"
+        case filesRead = "files:read"
+        case filesExecute = "files:execute"
         case openid = "openid"
         case profile = "profile"
         case email = "email"
