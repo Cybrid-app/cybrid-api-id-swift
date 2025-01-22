@@ -34,6 +34,8 @@ import AnyCodable
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalWalletsExecute = "external_wallets:execute"
         case externalWalletsRead = "external_wallets:read"
+        case filesExecute = "files:execute"
+        case filesRead = "files:read"
         case identityVerificationsExecute = "identity_verifications:execute"
         case identityVerificationsRead = "identity_verifications:read"
         case identityVerificationsWrite = "identity_verifications:write"
