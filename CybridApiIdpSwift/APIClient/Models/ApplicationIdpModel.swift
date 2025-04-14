@@ -57,6 +57,7 @@ import AnyCodable
         case tradesRead = "trades:read"
         case transfersExecute = "transfers:execute"
         case transfersRead = "transfers:read"
+        case transfersWrite = "transfers:write"
         case usersExecute = "users:execute"
         case usersRead = "users:read"
         case workflowsExecute = "workflows:execute"

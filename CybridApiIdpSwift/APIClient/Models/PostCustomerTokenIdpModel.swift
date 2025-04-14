@@ -26,6 +26,7 @@ import AnyCodable
         case tradesRead = "trades:read"
         case tradesExecute = "trades:execute"
         case transfersRead = "transfers:read"
+        case transfersWrite = "transfers:write"
         case transfersExecute = "transfers:execute"
         case externalBankAccountsRead = "external_bank_accounts:read"
         case externalBankAccountsWrite = "external_bank_accounts:write"
