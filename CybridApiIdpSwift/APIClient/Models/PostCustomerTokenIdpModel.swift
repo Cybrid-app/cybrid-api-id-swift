@@ -14,9 +14,11 @@ import AnyCodable
 
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case counterpartiesRead = "counterparties:read"
+        case counterpartiesPiiRead = "counterparties:pii:read"
         case counterpartiesWrite = "counterparties:write"
         case counterpartiesExecute = "counterparties:execute"
         case customersRead = "customers:read"
+        case customersPiiRead = "customers:pii:read"
         case customersWrite = "customers:write"
         case accountsRead = "accounts:read"
         case accountsExecute = "accounts:execute"
@@ -29,6 +31,7 @@ import AnyCodable
         case transfersWrite = "transfers:write"
         case transfersExecute = "transfers:execute"
         case externalBankAccountsRead = "external_bank_accounts:read"
+        case externalBankAccountsPiiRead = "external_bank_accounts:pii:read"
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalBankAccountsExecute = "external_bank_accounts:execute"
         case externalWalletsRead = "external_wallets:read"
@@ -43,6 +46,7 @@ import AnyCodable
         case invoicesWrite = "invoices:write"
         case invoicesExecute = "invoices:execute"
         case identityVerificationsRead = "identity_verifications:read"
+        case identityVerificationsPiiRead = "identity_verifications:pii:read"
         case identityVerificationsWrite = "identity_verifications:write"
         case identityVerificationsExecute = "identity_verifications:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
