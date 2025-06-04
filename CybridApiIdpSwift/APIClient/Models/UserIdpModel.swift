@@ -64,6 +64,7 @@ import AnyCodable
         case identityVerificationsPiiRead = "identity_verifications:pii:read"
         case identityVerificationsWrite = "identity_verifications:write"
         case identityVerificationsExecute = "identity_verifications:execute"
+        case personaSessionsExecute = "persona_sessions:execute"
         case filesRead = "files:read"
         case filesPiiRead = "files:pii:read"
         case filesExecute = "files:execute"
