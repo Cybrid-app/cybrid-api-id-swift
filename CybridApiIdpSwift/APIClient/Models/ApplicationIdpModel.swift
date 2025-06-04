@@ -50,6 +50,7 @@ import AnyCodable
         case organizationApplicationsExecute = "organization_applications:execute"
         case organizationsRead = "organizations:read"
         case organizationsWrite = "organizations:write"
+        case personaSessionsExecute = "persona_sessions:execute"
         case pricesRead = "prices:read"
         case quotesExecute = "quotes:execute"
         case quotesRead = "quotes:read"

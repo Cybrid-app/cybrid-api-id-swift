@@ -49,6 +49,7 @@ import AnyCodable
         case identityVerificationsPiiRead = "identity_verifications:pii:read"
         case identityVerificationsWrite = "identity_verifications:write"
         case identityVerificationsExecute = "identity_verifications:execute"
+        case personaSessionsExecute = "persona_sessions:execute"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Customer guid the access token is being generated for. */
