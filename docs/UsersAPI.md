@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**disableUser**](UsersAPI.md#disableuser) | **DELETE** /api/users/{user_guid} | Disable User
 [**getUser**](UsersAPI.md#getuser) | **GET** /api/users/{user_guid} | Get User
 [**listUser**](UsersAPI.md#listuser) | **GET** /api/users | List users
+[**updateUser**](UsersAPI.md#updateuser) | **PATCH** /api/users/{user_guid} | Update User
 
 
 # **createUser**
@@ -210,6 +211,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateUser**
+```swift
+    open class func updateUser(userGuid: String, patchUserIdpModel: PatchUserIdpModel, completion: @escaping (_ data: UserIdpModel?, _ error: Error?) -> Void)
+```
+
+Update User
+
+Updates a user's allowed scopes.  Required scope: **users:write**
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import CybridApiIdpSwift
+
+let userGuid = "userGuid_example" // String | Identifier for the user.
+let patchUserIdpModel = PatchUser(allowedScopes: ["allowedScopes_example"]) // PatchUserIdpModel | 
+
+// Update User
+UsersAPI.updateUser(userGuid: userGuid, patchUserIdpModel: patchUserIdpModel) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userGuid** | **String** | Identifier for the user. | 
+ **patchUserIdpModel** | [**PatchUserIdpModel**](PatchUserIdpModel.md) |  | 
+
+### Return type
+
+[**UserIdpModel**](UserIdpModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

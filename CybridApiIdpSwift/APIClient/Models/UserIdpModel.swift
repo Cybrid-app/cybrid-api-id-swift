@@ -21,6 +21,7 @@ import AnyCodable
         case banksExecute = "banks:execute"
         case bankApplicationsExecute = "bank_applications:execute"
         case usersRead = "users:read"
+        case usersWrite = "users:write"
         case usersExecute = "users:execute"
         case accountsRead = "accounts:read"
         case accountsExecute = "accounts:execute"

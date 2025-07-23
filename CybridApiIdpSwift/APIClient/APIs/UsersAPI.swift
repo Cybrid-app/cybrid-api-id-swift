@@ -226,4 +226,59 @@ import AnyCodable
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
+
+    /**
+     Update User
+     
+     - parameter userGuid: (path) Identifier for the user. 
+     - parameter patchUserIdpModel: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    @discardableResult
+    open class func updateUser(userGuid: String, patchUserIdpModel: PatchUserIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<UserIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+        return updateUserWithRequestBuilder(userGuid: userGuid, patchUserIdpModel: patchUserIdpModel).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(.success(response.body))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Update User
+     - PATCH /api/users/{user_guid}
+     - Updates a user's allowed scopes.  Required scope: **users:write**
+     - BASIC:
+       - type: http
+       - name: BearerAuth
+     - OAuth:
+       - type: oauth2
+       - name: oauth2
+     - parameter userGuid: (path) Identifier for the user. 
+     - parameter patchUserIdpModel: (body)  
+     - returns: RequestBuilder<UserIdpModel> 
+     */
+    open class func updateUserWithRequestBuilder(userGuid: String, patchUserIdpModel: PatchUserIdpModel) -> RequestBuilder<UserIdpModel> {
+        var localVariablePath = "/api/users/{user_guid}"
+        let userGuidPreEscape = "\(APIHelper.mapValueToPathItem(userGuid))"
+        let userGuidPostEscape = userGuidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{user_guid}", with: userGuidPostEscape, options: .literal, range: nil)
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchUserIdpModel)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
 }
