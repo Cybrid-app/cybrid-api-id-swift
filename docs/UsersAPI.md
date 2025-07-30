@@ -25,7 +25,7 @@ Creates a user.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postUserIdpModel = PostUser(email: "email_example") // PostUserIdpModel | 
+let postUserIdpModel = PostUser(email: "email_example", allowedScopes: ["allowedScopes_example"]) // PostUserIdpModel | 
 
 // Create user
 UsersAPI.createUser(postUserIdpModel: postUserIdpModel) { (response, error) in

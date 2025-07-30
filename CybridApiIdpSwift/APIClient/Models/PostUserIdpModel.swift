@@ -12,15 +12,81 @@ import AnyCodable
 
 @objc public class PostUserIdpModel: NSObject, Codable, JSONEncodable {
 
+    public enum AllowedScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
+        case organizationsRead = "organizations:read"
+        case organizationsWrite = "organizations:write"
+        case organizationApplicationsExecute = "organization_applications:execute"
+        case banksRead = "banks:read"
+        case banksWrite = "banks:write"
+        case banksExecute = "banks:execute"
+        case bankApplicationsExecute = "bank_applications:execute"
+        case usersRead = "users:read"
+        case usersWrite = "users:write"
+        case usersExecute = "users:execute"
+        case accountsRead = "accounts:read"
+        case accountsExecute = "accounts:execute"
+        case counterpartiesRead = "counterparties:read"
+        case counterpartiesPiiRead = "counterparties:pii:read"
+        case counterpartiesWrite = "counterparties:write"
+        case counterpartiesExecute = "counterparties:execute"
+        case customersRead = "customers:read"
+        case customersPiiRead = "customers:pii:read"
+        case customersWrite = "customers:write"
+        case customersExecute = "customers:execute"
+        case pricesRead = "prices:read"
+        case quotesExecute = "quotes:execute"
+        case quotesRead = "quotes:read"
+        case tradesExecute = "trades:execute"
+        case tradesRead = "trades:read"
+        case transfersExecute = "transfers:execute"
+        case transfersRead = "transfers:read"
+        case transfersWrite = "transfers:write"
+        case externalBankAccountsRead = "external_bank_accounts:read"
+        case externalBankAccountsPiiRead = "external_bank_accounts:pii:read"
+        case externalBankAccountsWrite = "external_bank_accounts:write"
+        case externalBankAccountsExecute = "external_bank_accounts:execute"
+        case externalWalletsRead = "external_wallets:read"
+        case externalWalletsExecute = "external_wallets:execute"
+        case workflowsRead = "workflows:read"
+        case workflowsExecute = "workflows:execute"
+        case depositAddressesRead = "deposit_addresses:read"
+        case depositAddressesExecute = "deposit_addresses:execute"
+        case depositBankAccountsRead = "deposit_bank_accounts:read"
+        case depositBankAccountsExecute = "deposit_bank_accounts:execute"
+        case invoicesRead = "invoices:read"
+        case invoicesWrite = "invoices:write"
+        case invoicesExecute = "invoices:execute"
+        case subscriptionsRead = "subscriptions:read"
+        case subscriptionsWrite = "subscriptions:write"
+        case subscriptionsExecute = "subscriptions:execute"
+        case subscriptionEventsRead = "subscription_events:read"
+        case subscriptionEventsExecute = "subscription_events:execute"
+        case identityVerificationsRead = "identity_verifications:read"
+        case identityVerificationsPiiRead = "identity_verifications:pii:read"
+        case identityVerificationsWrite = "identity_verifications:write"
+        case identityVerificationsExecute = "identity_verifications:execute"
+        case personaSessionsExecute = "persona_sessions:execute"
+        case filesRead = "files:read"
+        case filesPiiRead = "files:pii:read"
+        case filesExecute = "files:execute"
+        case openid = "openid"
+        case profile = "profile"
+        case email = "email"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+    }
     /** The email address associated with the user. */
     public var email: String
+    /** List of scopes that the user is allowed to request. */
+    public var allowedScopes: Set<AllowedScopesIdpModel>?
 
-    public init(email: String) {
+    public init(email: String, allowedScopes: Set<AllowedScopesIdpModel>? = nil) {
         self.email = email
+        self.allowedScopes = allowedScopes
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case email
+        case allowedScopes = "allowed_scopes"
     }
 
     // Encodable protocol methods
@@ -28,6 +94,7 @@ import AnyCodable
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(email, forKey: .email)
+        try container.encodeIfPresent(allowedScopes, forKey: .allowedScopes)
     }
 }
 
