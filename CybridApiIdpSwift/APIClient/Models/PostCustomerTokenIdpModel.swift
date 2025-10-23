@@ -50,6 +50,10 @@ import AnyCodable
         case identityVerificationsWrite = "identity_verifications:write"
         case identityVerificationsExecute = "identity_verifications:execute"
         case personaSessionsExecute = "persona_sessions:execute"
+        case plansExecute = "plans:execute"
+        case plansRead = "plans:read"
+        case executionsExecute = "executions:execute"
+        case executionsRead = "executions:read"
         case unknownDefaultOpenApi = "unknown_default_open_api"
     }
     /** Customer guid the access token is being generated for. */
