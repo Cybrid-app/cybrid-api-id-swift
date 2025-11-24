@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **username** | **String** | The user&#39;s username. | [optional] 
 **email** | **String** | The user&#39;s email address. | [optional] 
 **allowedScopes** | **Set<String>** | The list of scopes that the user is allowed to request. | [optional] 
+**inviteUrl** | **String** | The invitation URL for the user. Only present for newly created users. | [optional] 
 **createdAt** | **Date** | ISO8601 datetime the record was created at. | [optional] 
 **updatedAt** | **Date** | ISO8601 datetime the record was last updated at. | [optional] 
 

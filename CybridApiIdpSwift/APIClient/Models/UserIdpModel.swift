@@ -86,16 +86,19 @@ import AnyCodable
     public var email: String?
     /** The list of scopes that the user is allowed to request. */
     public var allowedScopes: Set<AllowedScopesIdpModel>?
+    /** The invitation URL for the user. Only present for newly created users. */
+    public var inviteUrl: String?
     /** ISO8601 datetime the record was created at. */
     public var createdAt: Date?
     /** ISO8601 datetime the record was last updated at. */
     public var updatedAt: Date?
 
-    public init(guid: String? = nil, username: String? = nil, email: String? = nil, allowedScopes: Set<AllowedScopesIdpModel>? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) {
+    public init(guid: String? = nil, username: String? = nil, email: String? = nil, allowedScopes: Set<AllowedScopesIdpModel>? = nil, inviteUrl: String? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) {
         self.guid = guid
         self.username = username
         self.email = email
         self.allowedScopes = allowedScopes
+        self.inviteUrl = inviteUrl
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
@@ -105,6 +108,7 @@ import AnyCodable
         case username
         case email
         case allowedScopes = "allowed_scopes"
+        case inviteUrl = "invite_url"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -117,6 +121,7 @@ import AnyCodable
         try container.encodeIfPresent(username, forKey: .username)
         try container.encodeIfPresent(email, forKey: .email)
         try container.encodeIfPresent(allowedScopes, forKey: .allowedScopes)
+        try container.encodeIfPresent(inviteUrl, forKey: .inviteUrl)
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
     }
