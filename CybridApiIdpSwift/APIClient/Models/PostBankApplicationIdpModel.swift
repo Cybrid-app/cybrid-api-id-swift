@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class PostBankApplicationIdpModel: NSObject, Codable, JSONEncodable {
+public struct PostBankApplicationIdpModel: Codable, JSONEncodable, Hashable {
 
     /** Name for the bank application. */
     public var name: String

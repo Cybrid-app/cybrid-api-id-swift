@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc open class BankApplicationsAPI : NSObject {
+open class BankApplicationsAPI {
 
     /**
      Create bank application

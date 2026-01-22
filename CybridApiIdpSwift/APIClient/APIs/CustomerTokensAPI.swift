@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc open class CustomerTokensAPI : NSObject {
+open class CustomerTokensAPI {
 
     /**
      Create customer access token
