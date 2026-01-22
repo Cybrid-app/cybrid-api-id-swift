@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class PostCustomerTokenIdpModel: NSObject, Codable, JSONEncodable {
+public struct PostCustomerTokenIdpModel: Codable, JSONEncodable, Hashable {
 
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case counterpartiesRead = "counterparties:read"

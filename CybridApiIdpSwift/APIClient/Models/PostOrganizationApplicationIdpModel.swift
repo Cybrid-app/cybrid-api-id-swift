@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class PostOrganizationApplicationIdpModel: NSObject, Codable, JSONEncodable {
+public struct PostOrganizationApplicationIdpModel: Codable, JSONEncodable, Hashable {
 
     /** Name for the organization application. */
     public var name: String

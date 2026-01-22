@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class UserListIdpModel: NSObject, Codable, JSONEncodable {
+public struct UserListIdpModel: Codable, JSONEncodable, Hashable {
 
     /** The total number of users available. */
     public var total: Int

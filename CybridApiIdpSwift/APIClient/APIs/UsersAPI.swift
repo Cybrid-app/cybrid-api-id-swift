@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc open class UsersAPI : NSObject {
+open class UsersAPI {
 
     /**
      Create user

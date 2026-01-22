@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class ApplicationWithSecretAllOfIdpModel: NSObject, Codable, JSONEncodable {
+public struct ApplicationWithSecretAllOfIdpModel: Codable, JSONEncodable, Hashable {
 
     /** The OAuth2 application's secret. */
     public var secret: String

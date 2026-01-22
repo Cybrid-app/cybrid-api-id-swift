@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class PatchUserIdpModel: NSObject, Codable, JSONEncodable {
+public struct PatchUserIdpModel: Codable, JSONEncodable, Hashable {
 
     public enum AllowedScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case organizationsRead = "organizations:read"

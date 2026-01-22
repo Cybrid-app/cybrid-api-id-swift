@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-@objc public class CustomerTokenIdpModel: NSObject, Codable, JSONEncodable {
+public struct CustomerTokenIdpModel: Codable, JSONEncodable, Hashable {
 
     /** The JWT access token for the customer. */
     public var accessToken: String?
