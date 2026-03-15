@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Request body for organization application creation. */
 public struct PostOrganizationApplicationIdpModel: Codable, JSONEncodable, Hashable {
 
     /** Name for the organization application. */

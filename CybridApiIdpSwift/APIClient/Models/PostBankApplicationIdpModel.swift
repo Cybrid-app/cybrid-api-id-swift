@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Request body for bank application creation. */
 public struct PostBankApplicationIdpModel: Codable, JSONEncodable, Hashable {
 
     /** Name for the bank application. */
