@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Request body for customer token creation. */
 public struct PostCustomerTokenIdpModel: Codable, JSONEncodable, Hashable {
 
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {

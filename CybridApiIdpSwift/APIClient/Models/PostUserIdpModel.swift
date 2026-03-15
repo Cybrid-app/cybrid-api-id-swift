@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Request body for user creation. */
 public struct PostUserIdpModel: Codable, JSONEncodable, Hashable {
 
     public enum AllowedScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {

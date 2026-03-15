@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Request body for user update. */
 public struct PatchUserIdpModel: Codable, JSONEncodable, Hashable {
 
     public enum AllowedScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
