@@ -14,11 +14,10 @@ public struct ApplicationListIdpModel: Codable, JSONEncodable, Hashable {
 
     /** The total number of records available. */
     public var total: Int
-    /** The page index. */
+    /** The page index to retrieve. */
     public var page: Int
-    /** The number of records per page returned. */
+    /** The number of entities per page to return. */
     public var perPage: Int
-    /** Array of applications */
     public var objects: [ApplicationIdpModel]
 
     public init(total: Int, page: Int, perPage: Int, objects: [ApplicationIdpModel]) {
