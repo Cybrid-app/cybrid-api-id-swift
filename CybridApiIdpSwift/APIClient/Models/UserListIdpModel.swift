@@ -12,13 +12,12 @@ import AnyCodable
 
 public struct UserListIdpModel: Codable, JSONEncodable, Hashable {
 
-    /** The total number of users available. */
+    /** The total number of records available. */
     public var total: Int
-    /** The page index. */
+    /** The page index to retrieve. */
     public var page: Int
-    /** The number of records per page returned. */
+    /** The number of entities per page to return. */
     public var perPage: Int
-    /** Array of applications */
     public var objects: [UserIdpModel]
 
     public init(total: Int, page: Int, perPage: Int, objects: [UserIdpModel]) {
