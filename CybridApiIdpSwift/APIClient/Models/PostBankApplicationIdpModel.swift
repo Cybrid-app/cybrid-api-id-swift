@@ -17,15 +17,19 @@ public struct PostBankApplicationIdpModel: Codable, JSONEncodable, Hashable {
     public var name: String
     /** Bank guid the application is associated to. */
     public var bankGuid: String?
+    /** List of public IPv4 addresses or CIDR ranges to allowlist for API access. */
+    public var ipAllowlist: [String]?
 
-    public init(name: String, bankGuid: String? = nil) {
+    public init(name: String, bankGuid: String? = nil, ipAllowlist: [String]? = nil) {
         self.name = name
         self.bankGuid = bankGuid
+        self.ipAllowlist = ipAllowlist
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case bankGuid = "bank_guid"
+        case ipAllowlist = "ip_allowlist"
     }
 
     // Encodable protocol methods
@@ -34,6 +38,7 @@ public struct PostBankApplicationIdpModel: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encodeIfPresent(bankGuid, forKey: .bankGuid)
+        try container.encodeIfPresent(ipAllowlist, forKey: .ipAllowlist)
     }
 }
 

@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrganizationApplication**](OrganizationApplicationsAPI.md#createorganizationapplication) | **POST** /api/organization_applications | Create organization application
 [**deleteOrganizationApplication**](OrganizationApplicationsAPI.md#deleteorganizationapplication) | **DELETE** /api/organization_applications/{client_id} | Delete organization application
+[**getOrganizationApplication**](OrganizationApplicationsAPI.md#getorganizationapplication) | **GET** /api/organization_applications/{client_id} | Get organization application
 [**listOrganizationApplications**](OrganizationApplicationsAPI.md#listorganizationapplications) | **GET** /api/organization_applications | List organization applications
+[**updateOrganizationApplication**](OrganizationApplicationsAPI.md#updateorganizationapplication) | **PATCH** /api/organization_applications/{client_id} | Update organization application
 
 
 # **createOrganizationApplication**
@@ -23,7 +25,7 @@ Create an organization OAuth2 application.  Required scope: **organization_appli
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postOrganizationApplicationIdpModel = PostOrganizationApplication(name: "name_example") // PostOrganizationApplicationIdpModel | 
+let postOrganizationApplicationIdpModel = PostOrganizationApplication(name: "name_example", ipAllowlist: ["ipAllowlist_example"]) // PostOrganizationApplicationIdpModel | 
 
 // Create organization application
 OrganizationApplicationsAPI.createOrganizationApplication(postOrganizationApplicationIdpModel: postOrganizationApplicationIdpModel) { (response, error) in
@@ -109,6 +111,56 @@ Void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getOrganizationApplication**
+```swift
+    open class func getOrganizationApplication(clientId: String, completion: @escaping (_ data: ApplicationIdpModel?, _ error: Error?) -> Void)
+```
+
+Get organization application
+
+Retrieves an organization application.  Required scope: **organization_applications:read**
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import CybridApiIdpSwift
+
+let clientId = "clientId_example" // String | Identifier for the application.
+
+// Get organization application
+OrganizationApplicationsAPI.getOrganizationApplication(clientId: clientId) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **String** | Identifier for the application. | 
+
+### Return type
+
+[**ApplicationIdpModel**](ApplicationIdpModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **listOrganizationApplications**
 ```swift
     open class func listOrganizationApplications(page: Int? = nil, perPage: Int? = nil, completion: @escaping (_ data: ApplicationListIdpModel?, _ error: Error?) -> Void)
@@ -157,6 +209,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateOrganizationApplication**
+```swift
+    open class func updateOrganizationApplication(clientId: String, patchApplicationIdpModel: PatchApplicationIdpModel, completion: @escaping (_ data: ApplicationIdpModel?, _ error: Error?) -> Void)
+```
+
+Update organization application
+
+Updates an organization application.  Required scope: **organization_applications:write**
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import CybridApiIdpSwift
+
+let clientId = "clientId_example" // String | Identifier for the application.
+let patchApplicationIdpModel = PatchApplication(name: "name_example", ipAllowlist: ["ipAllowlist_example"]) // PatchApplicationIdpModel | 
+
+// Update organization application
+OrganizationApplicationsAPI.updateOrganizationApplication(clientId: clientId, patchApplicationIdpModel: patchApplicationIdpModel) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **String** | Identifier for the application. | 
+ **patchApplicationIdpModel** | [**PatchApplicationIdpModel**](PatchApplicationIdpModel.md) |  | 
+
+### Return type
+
+[**ApplicationIdpModel**](ApplicationIdpModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

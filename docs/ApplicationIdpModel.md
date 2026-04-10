@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name provided for the OAuth2 application. | 
 **clientId** | **String** | The OAuth2 application&#39;s client ID. | 
 **scopes** | **[String]** | List of the scopes granted to the OAuth2 application. | 
+**ipAllowlist** | **[String]** | List of IPv4 addresses or CIDR ranges that are allowlisted for API access. | 
 **createdAt** | **Date** | ISO8601 datetime the record was created at. | 
 **updatedAt** | **Date** | ISO8601 datetime the record was last updated at. | [optional] 
 

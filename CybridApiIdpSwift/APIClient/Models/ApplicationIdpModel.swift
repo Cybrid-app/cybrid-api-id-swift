@@ -16,6 +16,8 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         case accountsExecute = "accounts:execute"
         case accountsRead = "accounts:read"
         case bankApplicationsExecute = "bank_applications:execute"
+        case bankApplicationsRead = "bank_applications:read"
+        case bankApplicationsWrite = "bank_applications:write"
         case banksExecute = "banks:execute"
         case banksRead = "banks:read"
         case banksWrite = "banks:write"
@@ -50,6 +52,8 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         case invoicesRead = "invoices:read"
         case invoicesWrite = "invoices:write"
         case organizationApplicationsExecute = "organization_applications:execute"
+        case organizationApplicationsRead = "organization_applications:read"
+        case organizationApplicationsWrite = "organization_applications:write"
         case organizationsRead = "organizations:read"
         case organizationsWrite = "organizations:write"
         case personaSessionsExecute = "persona_sessions:execute"
@@ -81,15 +85,18 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
     public var clientId: String
     /** List of the scopes granted to the OAuth2 application. */
     public var scopes: [ScopesIdpModel]
+    /** List of IPv4 addresses or CIDR ranges that are allowlisted for API access. */
+    public var ipAllowlist: [String]
     /** ISO8601 datetime the record was created at. */
     public var createdAt: Date
     /** ISO8601 datetime the record was last updated at. */
     public var updatedAt: Date?
 
-    public init(name: String, clientId: String, scopes: [ScopesIdpModel], createdAt: Date, updatedAt: Date? = nil) {
+    public init(name: String, clientId: String, scopes: [ScopesIdpModel], ipAllowlist: [String], createdAt: Date, updatedAt: Date? = nil) {
         self.name = name
         self.clientId = clientId
         self.scopes = scopes
+        self.ipAllowlist = ipAllowlist
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
@@ -98,6 +105,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         case name
         case clientId = "client_id"
         case scopes
+        case ipAllowlist = "ip_allowlist"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -109,6 +117,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         try container.encode(name, forKey: .name)
         try container.encode(clientId, forKey: .clientId)
         try container.encode(scopes, forKey: .scopes)
+        try container.encode(ipAllowlist, forKey: .ipAllowlist)
         try container.encode(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
     }
