@@ -116,6 +116,59 @@ open class BankApplicationsAPI {
     }
 
     /**
+     Get bank application
+     
+     - parameter clientId: (path) Identifier for the application. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    @discardableResult
+    open class func getBankApplication(clientId: String, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+        return getBankApplicationWithRequestBuilder(clientId: clientId).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(.success(response.body))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Get bank application
+     - GET /api/bank_applications/{client_id}
+     - Retrieves a bank application.  Required scope: **bank_applications:read**
+     - BASIC:
+       - type: http
+       - name: BearerAuth
+     - OAuth:
+       - type: oauth2
+       - name: oauth2
+     - parameter clientId: (path) Identifier for the application. 
+     - returns: RequestBuilder<ApplicationIdpModel> 
+     */
+    open class func getBankApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<ApplicationIdpModel> {
+        var localVariablePath = "/api/bank_applications/{client_id}"
+        let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
+        let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{client_id}", with: clientIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApplicationIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      List bank applications
      
      - parameter page: (query) The page index to retrieve. (optional)
@@ -172,5 +225,60 @@ open class BankApplicationsAPI {
         let localVariableRequestBuilder: RequestBuilder<ApplicationListIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Update bank application
+     
+     - parameter clientId: (path) Identifier for the application. 
+     - parameter patchApplicationIdpModel: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    @discardableResult
+    open class func updateBankApplication(clientId: String, patchApplicationIdpModel: PatchApplicationIdpModel, apiResponseQueue: DispatchQueue = CybridApiIdpSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<ApplicationIdpModel, ErrorResponse>) -> Void)) -> RequestTask {
+        return updateBankApplicationWithRequestBuilder(clientId: clientId, patchApplicationIdpModel: patchApplicationIdpModel).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(.success(response.body))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Update bank application
+     - PATCH /api/bank_applications/{client_id}
+     - Updates a bank application.  Required scope: **bank_applications:write**
+     - BASIC:
+       - type: http
+       - name: BearerAuth
+     - OAuth:
+       - type: oauth2
+       - name: oauth2
+     - parameter clientId: (path) Identifier for the application. 
+     - parameter patchApplicationIdpModel: (body)  
+     - returns: RequestBuilder<ApplicationIdpModel> 
+     */
+    open class func updateBankApplicationWithRequestBuilder(clientId: String, patchApplicationIdpModel: PatchApplicationIdpModel) -> RequestBuilder<ApplicationIdpModel> {
+        var localVariablePath = "/api/bank_applications/{client_id}"
+        let clientIdPreEscape = "\(APIHelper.mapValueToPathItem(clientId))"
+        let clientIdPostEscape = clientIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{client_id}", with: clientIdPostEscape, options: .literal, range: nil)
+        let localVariableURLString = CybridApiIdpSwiftAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: patchApplicationIdpModel)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApplicationIdpModel>.Type = CybridApiIdpSwiftAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 }
