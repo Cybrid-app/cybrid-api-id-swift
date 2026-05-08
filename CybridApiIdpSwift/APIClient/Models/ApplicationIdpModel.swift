@@ -62,6 +62,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         case pricesRead = "prices:read"
         case quotesExecute = "quotes:execute"
         case quotesRead = "quotes:read"
+        case sardineSessionsExecute = "sardine_sessions:execute"
         case subscriptionEventsExecute = "subscription_events:execute"
         case subscriptionEventsRead = "subscription_events:read"
         case subscriptionsExecute = "subscriptions:execute"
