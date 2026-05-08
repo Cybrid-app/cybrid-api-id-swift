@@ -70,6 +70,7 @@ public struct UserIdpModel: Codable, JSONEncodable, Hashable {
         case identityVerificationsWrite = "identity_verifications:write"
         case identityVerificationsExecute = "identity_verifications:execute"
         case personaSessionsExecute = "persona_sessions:execute"
+        case sardineSessionsExecute = "sardine_sessions:execute"
         case plansExecute = "plans:execute"
         case plansRead = "plans:read"
         case executionsExecute = "executions:execute"
