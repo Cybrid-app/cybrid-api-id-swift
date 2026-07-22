@@ -15,6 +15,7 @@ public struct ApplicationWithSecretIdpModel: Codable, JSONEncodable, Hashable {
     public enum ScopesIdpModel: String, Codable, CaseIterable, CaseIterableDefaultsLast {
         case accountsExecute = "accounts:execute"
         case accountsRead = "accounts:read"
+        case accountsWrite = "accounts:write"
         case bankApplicationsExecute = "bank_applications:execute"
         case bankApplicationsRead = "bank_applications:read"
         case bankApplicationsWrite = "bank_applications:write"
@@ -41,6 +42,7 @@ public struct ApplicationWithSecretIdpModel: Codable, JSONEncodable, Hashable {
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalWalletsExecute = "external_wallets:execute"
         case externalWalletsRead = "external_wallets:read"
+        case externalWalletsWrite = "external_wallets:write"
         case filesExecute = "files:execute"
         case filesPiiRead = "files:pii:read"
         case filesRead = "files:read"
