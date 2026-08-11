@@ -29,6 +29,7 @@ public struct PostCustomerTokenIdpModel: Codable, JSONEncodable, Hashable {
         case quotesExecute = "quotes:execute"
         case tradesRead = "trades:read"
         case tradesExecute = "trades:execute"
+        case transactionsRead = "transactions:read"
         case transfersRead = "transfers:read"
         case transfersWrite = "transfers:write"
         case transfersExecute = "transfers:execute"

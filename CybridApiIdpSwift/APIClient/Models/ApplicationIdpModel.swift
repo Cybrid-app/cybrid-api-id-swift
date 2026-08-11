@@ -74,6 +74,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         case subscriptionsWrite = "subscriptions:write"
         case tradesExecute = "trades:execute"
         case tradesRead = "trades:read"
+        case transactionsRead = "transactions:read"
         case transfersExecute = "transfers:execute"
         case transfersRead = "transfers:read"
         case transfersWrite = "transfers:write"
