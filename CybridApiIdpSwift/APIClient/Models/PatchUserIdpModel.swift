@@ -44,6 +44,7 @@ public struct PatchUserIdpModel: Codable, JSONEncodable, Hashable {
         case quotesRead = "quotes:read"
         case tradesExecute = "trades:execute"
         case tradesRead = "trades:read"
+        case transactionsRead = "transactions:read"
         case transfersExecute = "transfers:execute"
         case transfersRead = "transfers:read"
         case transfersWrite = "transfers:write"
