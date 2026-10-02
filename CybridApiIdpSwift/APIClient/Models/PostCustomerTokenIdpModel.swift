@@ -67,15 +67,23 @@ public struct PostCustomerTokenIdpModel: Codable, JSONEncodable, Hashable {
     public var customerGuid: String
     /** List of the scopes requested for the access token. */
     public var scopes: Set<ScopesIdpModel>
+    /** When true, the customer token inherits the IP allowlist of the bank API key that creates it. */
+    public var inheritIpAllowlist: Bool? = true
+    /** List of public IPv4 addresses or CIDR ranges the customer token is restricted to. Combined with the inherited allowlist when inherit_ip_allowlist is true. */
+    public var ipAllowlist: [String]?
 
-    public init(customerGuid: String, scopes: Set<ScopesIdpModel>) {
+    public init(customerGuid: String, scopes: Set<ScopesIdpModel>, inheritIpAllowlist: Bool? = true, ipAllowlist: [String]? = nil) {
         self.customerGuid = customerGuid
         self.scopes = scopes
+        self.inheritIpAllowlist = inheritIpAllowlist
+        self.ipAllowlist = ipAllowlist
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case customerGuid = "customer_guid"
         case scopes
+        case inheritIpAllowlist = "inherit_ip_allowlist"
+        case ipAllowlist = "ip_allowlist"
     }
 
     // Encodable protocol methods
@@ -84,6 +92,8 @@ public struct PostCustomerTokenIdpModel: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(customerGuid, forKey: .customerGuid)
         try container.encode(scopes, forKey: .scopes)
+        try container.encodeIfPresent(inheritIpAllowlist, forKey: .inheritIpAllowlist)
+        try container.encodeIfPresent(ipAllowlist, forKey: .ipAllowlist)
     }
 }
 
