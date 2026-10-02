@@ -21,7 +21,7 @@ Creates a customer JWT access token.  Required scopes: **customers:write** and *
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postCustomerTokenIdpModel = PostCustomerToken(customerGuid: "customerGuid_example", scopes: ["scopes_example"]) // PostCustomerTokenIdpModel | 
+let postCustomerTokenIdpModel = PostCustomerToken(customerGuid: "customerGuid_example", scopes: ["scopes_example"], inheritIpAllowlist: false, ipAllowlist: ["ipAllowlist_example"]) // PostCustomerTokenIdpModel | 
 
 // Create customer access token
 CustomerTokensAPI.createCustomerToken(postCustomerTokenIdpModel: postCustomerTokenIdpModel) { (response, error) in
