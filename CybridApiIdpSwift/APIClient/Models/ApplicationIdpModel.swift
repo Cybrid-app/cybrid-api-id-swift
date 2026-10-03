@@ -93,16 +93,19 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
     public var scopes: [ScopesIdpModel]
     /** List of IPv4 addresses or CIDR ranges that are allowlisted for API access. */
     public var ipAllowlist: [String]
+    /** ISO8601 datetime the application expires at. Null for applications that do not expire. */
+    public var expiresAt: Date?
     /** ISO8601 datetime the record was created at. */
     public var createdAt: Date
     /** ISO8601 datetime the record was last updated at. */
     public var updatedAt: Date?
 
-    public init(name: String, clientId: String, scopes: [ScopesIdpModel], ipAllowlist: [String], createdAt: Date, updatedAt: Date? = nil) {
+    public init(name: String, clientId: String, scopes: [ScopesIdpModel], ipAllowlist: [String], expiresAt: Date?, createdAt: Date, updatedAt: Date? = nil) {
         self.name = name
         self.clientId = clientId
         self.scopes = scopes
         self.ipAllowlist = ipAllowlist
+        self.expiresAt = expiresAt
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
@@ -112,6 +115,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         case clientId = "client_id"
         case scopes
         case ipAllowlist = "ip_allowlist"
+        case expiresAt = "expires_at"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -124,6 +128,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
         try container.encode(clientId, forKey: .clientId)
         try container.encode(scopes, forKey: .scopes)
         try container.encode(ipAllowlist, forKey: .ipAllowlist)
+        try container.encode(expiresAt, forKey: .expiresAt)
         try container.encode(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
     }

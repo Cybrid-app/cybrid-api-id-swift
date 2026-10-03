@@ -25,7 +25,7 @@ Creates a bank OAuth2 application.  Required scope: **bank_applications:execute*
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postBankApplicationIdpModel = PostBankApplication(name: "name_example", bankGuid: "bankGuid_example", ipAllowlist: ["ipAllowlist_example"]) // PostBankApplicationIdpModel | 
+let postBankApplicationIdpModel = PostBankApplication(name: "name_example", bankGuid: "bankGuid_example", expiresAt: Date(), ipAllowlist: ["ipAllowlist_example"]) // PostBankApplicationIdpModel | 
 
 // Create bank application
 BankApplicationsAPI.createBankApplication(postBankApplicationIdpModel: postBankApplicationIdpModel) { (response, error) in

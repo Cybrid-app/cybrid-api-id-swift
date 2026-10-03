@@ -15,16 +15,20 @@ public struct PostOrganizationApplicationIdpModel: Codable, JSONEncodable, Hasha
 
     /** Name for the organization application. */
     public var name: String
+    /** ISO8601 datetime the application expires at; must be in the future. */
+    public var expiresAt: Date
     /** List of public IPv4 addresses or CIDR ranges to allowlist for API access. */
     public var ipAllowlist: [String]?
 
-    public init(name: String, ipAllowlist: [String]? = nil) {
+    public init(name: String, expiresAt: Date, ipAllowlist: [String]? = nil) {
         self.name = name
+        self.expiresAt = expiresAt
         self.ipAllowlist = ipAllowlist
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
+        case expiresAt = "expires_at"
         case ipAllowlist = "ip_allowlist"
     }
 
@@ -33,6 +37,7 @@ public struct PostOrganizationApplicationIdpModel: Codable, JSONEncodable, Hasha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
+        try container.encode(expiresAt, forKey: .expiresAt)
         try container.encodeIfPresent(ipAllowlist, forKey: .ipAllowlist)
     }
 }
