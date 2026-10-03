@@ -25,7 +25,7 @@ Create an organization OAuth2 application.  Required scope: **organization_appli
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let postOrganizationApplicationIdpModel = PostOrganizationApplication(name: "name_example", ipAllowlist: ["ipAllowlist_example"]) // PostOrganizationApplicationIdpModel | 
+let postOrganizationApplicationIdpModel = PostOrganizationApplication(name: "name_example", expiresAt: Date(), ipAllowlist: ["ipAllowlist_example"]) // PostOrganizationApplicationIdpModel | 
 
 // Create organization application
 OrganizationApplicationsAPI.createOrganizationApplication(postOrganizationApplicationIdpModel: postOrganizationApplicationIdpModel) { (response, error) in
