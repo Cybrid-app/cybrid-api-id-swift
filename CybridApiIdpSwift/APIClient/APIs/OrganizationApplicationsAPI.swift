@@ -65,7 +65,7 @@ open class OrganizationApplicationsAPI {
     /**
      Delete organization application
      
-     - parameter clientId: (path) Identifier for the application. 
+     - parameter clientId: (path) The application client_id or guid. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -91,7 +91,7 @@ open class OrganizationApplicationsAPI {
      - OAuth:
        - type: oauth2
        - name: oauth2
-     - parameter clientId: (path) Identifier for the application. 
+     - parameter clientId: (path) The application client_id or guid. 
      - returns: RequestBuilder<Void> 
      */
     open class func deleteOrganizationApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<Void> {
@@ -118,7 +118,7 @@ open class OrganizationApplicationsAPI {
     /**
      Get organization application
      
-     - parameter clientId: (path) Identifier for the application. 
+     - parameter clientId: (path) The application client_id or guid. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -144,7 +144,7 @@ open class OrganizationApplicationsAPI {
      - OAuth:
        - type: oauth2
        - name: oauth2
-     - parameter clientId: (path) Identifier for the application. 
+     - parameter clientId: (path) The application client_id or guid. 
      - returns: RequestBuilder<ApplicationIdpModel> 
      */
     open class func getOrganizationApplicationWithRequestBuilder(clientId: String) -> RequestBuilder<ApplicationIdpModel> {
@@ -227,7 +227,7 @@ open class OrganizationApplicationsAPI {
     /**
      Update organization application
      
-     - parameter clientId: (path) Identifier for the application. 
+     - parameter clientId: (path) The application client_id or guid. 
      - parameter patchApplicationIdpModel: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
@@ -254,7 +254,7 @@ open class OrganizationApplicationsAPI {
      - OAuth:
        - type: oauth2
        - name: oauth2
-     - parameter clientId: (path) Identifier for the application. 
+     - parameter clientId: (path) The application client_id or guid. 
      - parameter patchApplicationIdpModel: (body)  
      - returns: RequestBuilder<ApplicationIdpModel> 
      */

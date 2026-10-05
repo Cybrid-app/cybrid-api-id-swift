@@ -75,7 +75,7 @@ Deletes an application.Required scope: **bank_applications:execute**
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let clientId = "clientId_example" // String | Identifier for the application.
+let clientId = "clientId_example" // String | The application client_id or guid.
 
 // Delete bank application
 BankApplicationsAPI.deleteBankApplication(clientId: clientId) { (response, error) in
@@ -94,7 +94,7 @@ BankApplicationsAPI.deleteBankApplication(clientId: clientId) { (response, error
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String** | Identifier for the application. | 
+ **clientId** | **String** | The application client_id or guid. | 
 
 ### Return type
 
@@ -125,7 +125,7 @@ Retrieves a bank application.  Required scope: **bank_applications:read**
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let clientId = "clientId_example" // String | Identifier for the application.
+let clientId = "clientId_example" // String | The application client_id or guid.
 
 // Get bank application
 BankApplicationsAPI.getBankApplication(clientId: clientId) { (response, error) in
@@ -144,7 +144,7 @@ BankApplicationsAPI.getBankApplication(clientId: clientId) { (response, error) i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String** | Identifier for the application. | 
+ **clientId** | **String** | The application client_id or guid. | 
 
 ### Return type
 
@@ -229,7 +229,7 @@ Updates a bank application.  Required scope: **bank_applications:write**
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let clientId = "clientId_example" // String | Identifier for the application.
+let clientId = "clientId_example" // String | The application client_id or guid.
 let patchApplicationIdpModel = PatchApplication(name: "name_example", ipAllowlist: ["ipAllowlist_example"]) // PatchApplicationIdpModel | 
 
 // Update bank application
@@ -249,7 +249,7 @@ BankApplicationsAPI.updateBankApplication(clientId: clientId, patchApplicationId
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String** | Identifier for the application. | 
+ **clientId** | **String** | The application client_id or guid. | 
  **patchApplicationIdpModel** | [**PatchApplicationIdpModel**](PatchApplicationIdpModel.md) |  | 
 
 ### Return type

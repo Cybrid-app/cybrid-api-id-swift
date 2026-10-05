@@ -88,6 +88,8 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
     }
     /** Name provided for the OAuth2 application. */
     public var name: String
+    /** Auto-generated unique identifier for the OAuth2 application. */
+    public var guid: String
     /** The OAuth2 application's client ID. */
     public var clientId: String
     /** List of the scopes granted to the OAuth2 application. */
@@ -101,8 +103,9 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
     /** ISO8601 datetime the record was last updated at. */
     public var updatedAt: Date?
 
-    public init(name: String, clientId: String, scopes: [ScopesIdpModel], ipAllowlist: [String], expiresAt: Date?, createdAt: Date, updatedAt: Date? = nil) {
+    public init(name: String, guid: String, clientId: String, scopes: [ScopesIdpModel], ipAllowlist: [String], expiresAt: Date?, createdAt: Date, updatedAt: Date? = nil) {
         self.name = name
+        self.guid = guid
         self.clientId = clientId
         self.scopes = scopes
         self.ipAllowlist = ipAllowlist
@@ -113,6 +116,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
+        case guid
         case clientId = "client_id"
         case scopes
         case ipAllowlist = "ip_allowlist"
@@ -126,6 +130,7 @@ public struct ApplicationIdpModel: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
+        try container.encode(guid, forKey: .guid)
         try container.encode(clientId, forKey: .clientId)
         try container.encode(scopes, forKey: .scopes)
         try container.encode(ipAllowlist, forKey: .ipAllowlist)
