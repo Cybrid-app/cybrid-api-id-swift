@@ -75,7 +75,7 @@ Deletes an application.Required scope: **organization_applications:execute**
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let clientId = "clientId_example" // String | Identifier for the application.
+let clientId = "clientId_example" // String | The application client_id or guid.
 
 // Delete organization application
 OrganizationApplicationsAPI.deleteOrganizationApplication(clientId: clientId) { (response, error) in
@@ -94,7 +94,7 @@ OrganizationApplicationsAPI.deleteOrganizationApplication(clientId: clientId) { 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String** | Identifier for the application. | 
+ **clientId** | **String** | The application client_id or guid. | 
 
 ### Return type
 
@@ -125,7 +125,7 @@ Retrieves an organization application.  Required scope: **organization_applicati
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let clientId = "clientId_example" // String | Identifier for the application.
+let clientId = "clientId_example" // String | The application client_id or guid.
 
 // Get organization application
 OrganizationApplicationsAPI.getOrganizationApplication(clientId: clientId) { (response, error) in
@@ -144,7 +144,7 @@ OrganizationApplicationsAPI.getOrganizationApplication(clientId: clientId) { (re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String** | Identifier for the application. | 
+ **clientId** | **String** | The application client_id or guid. | 
 
 ### Return type
 
@@ -227,7 +227,7 @@ Updates an organization application.  Required scope: **organization_application
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import CybridApiIdpSwift
 
-let clientId = "clientId_example" // String | Identifier for the application.
+let clientId = "clientId_example" // String | The application client_id or guid.
 let patchApplicationIdpModel = PatchApplication(name: "name_example", ipAllowlist: ["ipAllowlist_example"]) // PatchApplicationIdpModel | 
 
 // Update organization application
@@ -247,7 +247,7 @@ OrganizationApplicationsAPI.updateOrganizationApplication(clientId: clientId, pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientId** | **String** | Identifier for the application. | 
+ **clientId** | **String** | The application client_id or guid. | 
  **patchApplicationIdpModel** | [**PatchApplicationIdpModel**](PatchApplicationIdpModel.md) |  | 
 
 ### Return type
