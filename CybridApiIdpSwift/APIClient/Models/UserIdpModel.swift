@@ -49,6 +49,7 @@ public struct UserIdpModel: Codable, JSONEncodable, Hashable {
         case transfersWrite = "transfers:write"
         case externalBankAccountsRead = "external_bank_accounts:read"
         case externalBankAccountsPiiRead = "external_bank_accounts:pii:read"
+        case transfersPiiRead = "transfers:pii:read"
         case externalBankAccountsWrite = "external_bank_accounts:write"
         case externalBankAccountsExecute = "external_bank_accounts:execute"
         case externalWalletsRead = "external_wallets:read"

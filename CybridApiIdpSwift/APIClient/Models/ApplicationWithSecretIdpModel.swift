@@ -76,6 +76,7 @@ public struct ApplicationWithSecretIdpModel: Codable, JSONEncodable, Hashable {
         case tradesRead = "trades:read"
         case transactionsRead = "transactions:read"
         case transfersExecute = "transfers:execute"
+        case transfersPiiRead = "transfers:pii:read"
         case transfersRead = "transfers:read"
         case transfersWrite = "transfers:write"
         case usersExecute = "users:execute"
