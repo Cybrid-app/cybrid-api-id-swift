@@ -173,7 +173,7 @@ open class BankApplicationsAPI {
      
      - parameter page: (query) The page index to retrieve. (optional)
      - parameter perPage: (query) The number of entities per page to return. (optional)
-     - parameter bankGuid: (query) Bank guid to list applications for. (optional)
+     - parameter bankGuid: (query) Bank guid to list applications for; organization tokens only, omitted lists all of its banks. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
@@ -201,7 +201,7 @@ open class BankApplicationsAPI {
        - name: oauth2
      - parameter page: (query) The page index to retrieve. (optional)
      - parameter perPage: (query) The number of entities per page to return. (optional)
-     - parameter bankGuid: (query) Bank guid to list applications for. (optional)
+     - parameter bankGuid: (query) Bank guid to list applications for; organization tokens only, omitted lists all of its banks. (optional)
      - returns: RequestBuilder<ApplicationListIdpModel> 
      */
     open class func listBankApplicationsWithRequestBuilder(page: Int? = nil, perPage: Int? = nil, bankGuid: String? = nil) -> RequestBuilder<ApplicationListIdpModel> {

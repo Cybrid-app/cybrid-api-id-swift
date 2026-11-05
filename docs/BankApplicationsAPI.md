@@ -177,7 +177,7 @@ import CybridApiIdpSwift
 
 let page = 987 // Int | The page index to retrieve. (optional)
 let perPage = 987 // Int | The number of entities per page to return. (optional)
-let bankGuid = "bankGuid_example" // String | Bank guid to list applications for. (optional)
+let bankGuid = "bankGuid_example" // String | Bank guid to list applications for; organization tokens only, omitted lists all of its banks. (optional)
 
 // List bank applications
 BankApplicationsAPI.listBankApplications(page: page, perPage: perPage, bankGuid: bankGuid) { (response, error) in
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Int** | The page index to retrieve. | [optional] 
  **perPage** | **Int** | The number of entities per page to return. | [optional] 
- **bankGuid** | **String** | Bank guid to list applications for. | [optional] 
+ **bankGuid** | **String** | Bank guid to list applications for; organization tokens only, omitted lists all of its banks. | [optional] 
 
 ### Return type
 

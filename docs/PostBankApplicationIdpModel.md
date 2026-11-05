@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name for the bank application. | 
-**bankGuid** | **String** | Bank guid the application is associated to. | [optional] 
+**bankGuid** | **String** | Bank guid the application is associated to; required for organization tokens, ignored for bank tokens. | [optional] 
 **expiresAt** | **Date** | ISO8601 datetime the application expires at; must be in the future. | 
 **ipAllowlist** | **[String]** | List of public IPv4 addresses or CIDR ranges to allowlist for API access. | [optional] 
 

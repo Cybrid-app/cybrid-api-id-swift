@@ -15,7 +15,7 @@ public struct PostBankApplicationIdpModel: Codable, JSONEncodable, Hashable {
 
     /** Name for the bank application. */
     public var name: String
-    /** Bank guid the application is associated to. */
+    /** Bank guid the application is associated to; required for organization tokens, ignored for bank tokens. */
     public var bankGuid: String?
     /** ISO8601 datetime the application expires at; must be in the future. */
     public var expiresAt: Date
