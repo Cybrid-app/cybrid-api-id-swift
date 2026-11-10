@@ -34,7 +34,7 @@ open class UsersAPI {
     /**
      Create user
      - POST /api/users
-     - Creates a user.  
+     - Creates a user.  Required scope: **users:execute**
      - BASIC:
        - type: http
        - name: BearerAuth

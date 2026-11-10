@@ -84,7 +84,7 @@ open class BankApplicationsAPI {
     /**
      Delete bank application
      - DELETE /api/bank_applications/{client_id}
-     - Deletes an application.Required scope: **bank_applications:execute**
+     - Deletes an application.  Required scope: **bank_applications:execute**
      - BASIC:
        - type: http
        - name: BearerAuth

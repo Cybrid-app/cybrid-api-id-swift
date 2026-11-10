@@ -34,7 +34,7 @@ open class CustomerTokensAPI {
     /**
      Create customer access token
      - POST /api/customer_tokens
-     - Creates a customer JWT access token.  Required scopes: **customers:write** and **customers:read**
+     - Creates a customer JWT access token.  Required scope: **customers:write**
      - BASIC:
        - type: http
        - name: BearerAuth

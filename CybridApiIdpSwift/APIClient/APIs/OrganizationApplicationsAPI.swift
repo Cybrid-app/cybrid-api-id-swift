@@ -84,7 +84,7 @@ open class OrganizationApplicationsAPI {
     /**
      Delete organization application
      - DELETE /api/organization_applications/{client_id}
-     - Deletes an application.Required scope: **organization_applications:execute**
+     - Deletes an application.  Required scope: **organization_applications:execute**
      - BASIC:
        - type: http
        - name: BearerAuth
